@@ -1,0 +1,14 @@
+#{extends 'CRUD/layout.html' /}
+
+<div id="crudIndex">
+
+	<h2>&{'Elections'}</h2>
+
+#{list items:elections, as:'election'}
+    <p class="election ${election_parity}">
+        <a href="@{listDistricts(election.id)}">${election}</a>
+    </p>
+#{/list}
+
+
+</div>

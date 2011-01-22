@@ -1,0 +1,68 @@
+#{extends 'CRUD/layout.html' /}
+
+<div id="crudIndex">
+
+    <h2>&{'Results'}: ${pollingStation.pollingStation.code} / ${pollingStation.pollingStation.name}</h2>
+    #{form @save()}
+
+        <table>
+            <thead>
+                <tr>
+                    <th>&{'Results'}</th>
+                    <th width="20%">&{'votes'}</th>
+                </tr>
+            </thead>
+            <tbody>
+                #{list items:results, as:'result'}
+                    <tr>
+                        <td>
+                            &{result.party.name}
+                        </td>
+                        <td class="crudNew" >
+                            <input type="hidden" name="result[${result_index-1}].partyId" value="${result.party.id}" />
+                            <input type="text" size="5"
+                                   name="result[${result_index-1}].votes" value="${result.votes}" />
+                        </td>
+                    </tr>
+                #{/list}
+                <tr>
+                    <td>
+                        &{'Whites'}
+                    </td>
+                    <td class="crudNew" >
+                        #{field 'whiteVoteAmount'}
+                        <input type="text" size="5"
+                               name="whiteVoteAmount" value="${pollingStation.results.whiteVoteAmount}" />
+                        #{/field}
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &{'Nulls'}
+                    </td>
+                    <td class="crudNew" >
+                        #{field 'nullVoteAmount'}
+                        <input type="text" size="5"
+                               name="nullVoteAmount" value="${pollingStation.results.nullVoteAmount}" />
+                        #{/field}
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Census
+                    </td>
+                    <td class="crudNew" >
+                        ${pollingStation.census}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+
+    #{/form}
+
+</div>

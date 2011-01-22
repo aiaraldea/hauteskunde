@@ -1,0 +1,14 @@
+#{extends 'CRUD/layout.html' /}
+
+<div id="crudIndex">
+
+	<h2>&{'Districts'}</h2>
+
+#{list items:districts, as:'district'}
+    <p class="district ${district_parity}">
+        <a href="@{listPollingStations(district.id)}">${district.district.name}</a>
+    </p>
+#{/list}
+
+
+</div>

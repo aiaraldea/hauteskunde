@@ -1,0 +1,139 @@
+#{extends 'results/Results/layout.html' /}
+
+<div id="crudIndex">
+	<h2>&{'Districts'}</h2>
+
+Status: ${election.results.status.format('00.00')}
+
+<!-- the tabs -->
+<ul class="css-tabs">
+	<li><a href="#">&{'Votes'}</a></li>
+	<li><a href="#">&{'Percentage Over Votes'}</a></li>
+	<li><a href="#">&{'Percentage Over Census'}</a></li>
+</ul>
+
+<!-- tab "panes" -->
+<div class="css-panes">
+	<div>
+
+<table>
+    <thead>
+        <tr>
+            <th></th>
+        #{list items:election.results.parties, as:'party'}
+        <th>${party.name}</th>
+        #{/list}
+        <th>Whites</th>
+        <th>Nulls</th>
+        <th>Abstentions</th>
+        <th>Census</th>
+        </tr>
+    </thead>
+
+#{list items:election.districtBallots, as:'district'}
+    <tr>
+        <td><a href="@{listPollingStations(district.id)}">${district.district.name}</a></td>
+        #{list items:election.results.parties, as:'party'}
+        <td>${district.results.getResult(party)}</td>
+        #{/list}
+        <td>${district.results.whiteVoteAmount}</td>
+        <td>${district.results.nullVoteAmount}</td>
+        <td>${district.results.abstentions}</td>
+        <td>${district.results.census}</td>
+    </tr>
+#{/list}
+
+    <tr>
+        <td>&{'Total'}</td>
+        #{list items:election.results.parties, as:'party'}
+        <td>${election.results.getResult(party)}</td>
+        #{/list}
+        <td>${election.results.whiteVoteAmount}</td>
+        <td>${election.results.nullVoteAmount}</td>
+        <td>${election.results.abstentions}</td>
+        <td>${election.results.census}</td>
+    </tr>
+</table>
+        </div>
+	<div>
+
+
+<table>
+    <thead>
+        <tr>
+            <th></th>
+        #{list items:election.results.parties, as:'party'}
+        <th>${party.name}</th>
+        #{/list}
+        <th>Whites</th>
+        <th>Abstentions</th>
+        </tr>
+    </thead>
+
+#{list items:election.districtBallots, as:'district'}
+    <tr>
+        <td><a href="@{listPollingStations(district.id)}">${district.district.name}</a></td>
+        #{list items:election.results.parties, as:'party'}
+        <td>${district.results.getPercentageOverVotes(party)}</td>
+        #{/list}
+        <td>${district.results.whiteVotePercentageOverVotes}</td>
+        <td>${district.results.census}</td>
+    </tr>
+#{/list}
+
+    <tr>
+        <td>&{'Total'}</td>
+        #{list items:election.results.parties, as:'party'}
+        <td>${election.results.getPercentageOverVotes(party)}</td>
+        #{/list}
+        <td>${election.results.whiteVotePercentageOverVotes}</td>
+        <td>${election.results.census}</td>
+    </tr>
+</table>
+        </div>
+	<div>
+
+
+<table>
+    <thead>
+        <tr>
+            <th></th>
+        #{list items:election.results.parties, as:'party'}
+        <th>${party.name}</th>
+        #{/list}
+        <th>Whites</th>
+        <th>Nulls</th>
+        <th>Abstentions</th>
+        <th>Census</th>
+        </tr>
+    </thead>
+
+#{list items:election.districtBallots, as:'district'}
+    <tr>
+        <td><a href="@{listPollingStations(district.id)}">${district.district.name}</a></td>
+        #{list items:election.results.parties, as:'party'}
+        <td>${district.results.getPercentageOverCensus(party)}</td>
+        #{/list}
+        <td>${district.results.whiteVotePercentageOverCensus}</td>
+        <td>${district.results.nullVotePercentageOverCensus}</td>
+        <td>${district.results.abstentionsPercentage}</td>
+        <td>${district.results.census}</td>
+    </tr>
+#{/list}
+
+    <tr>
+        <td>&{'Total'}</td>
+        #{list items:election.results.parties, as:'party'}
+        <td>${election.results.getPercentageOverCensus(party)}</td>
+        #{/list}
+        <td>${election.results.whiteVotePercentageOverCensus}</td>
+        <td>${election.results.nullVotePercentageOverCensus}</td>
+        <td>${election.results.abstentionsPercentage}</td>
+        <td>${election.results.census}</td>
+    </tr>
+</table>
+        </div>
+</div>
+
+
+</div>

@@ -1,0 +1,92 @@
+election.Election(udal-hauteskundeak-2011):
+  name: Udal hauteskundeak 2011
+  date: 2011-05-20
+
+election.DistrictBallot(aiara2011):
+  election: udal-hauteskundeak-2011
+  district: aiara
+
+election.DistrictBallot(amurrio2011):
+  election: udal-hauteskundeak-2011
+  district: amurrio
+  seats: 13
+
+election.DistrictBallot(arrankudiaga2011):
+  election: udal-hauteskundeak-2011
+  district: arrankudiaga
+
+election.DistrictBallot(artziniega2011):
+  election: udal-hauteskundeak-2011
+  district: artziniega
+
+election.DistrictBallot(laudio2011):
+  election: udal-hauteskundeak-2011
+  district: laudio
+
+election.DistrictBallot(okondo2011):
+  election: udal-hauteskundeak-2011
+  district: okondo
+
+election.DistrictBallot(orozko2011):
+  election: udal-hauteskundeak-2011
+  district: orozko
+
+election.DistrictBallot(urduña2011):
+  election: udal-hauteskundeak-2011
+  district: urduña
+
+# Polling Stations
+election.PollingStationBallot(lezama2011):
+  census: 220
+  pollingStation: lezama
+  districtBallot: amurrio2011
+
+election.PollingStationBallot(arrastaria2011):
+  census: 280
+  pollingStation: arrastaria
+  districtBallot: amurrio2011
+
+
+
+
+#Parties
+
+election.DistrictBallotParty(eaj-aiara-2011):
+  name:
+  mainParty: eaj
+  districtBallot: aiara2011
+
+election.DistrictBallotParty(eaj-amurrio-2011):
+  name:
+  mainParty: eaj
+  districtBallot: amurrio2011
+
+election.DistrictBallotParty(ea-amurrio-2011):
+  name:
+  mainParty: ea
+  districtBallot: amurrio2011
+
+election.DistrictBallotParty(ezker-abertzalea-amurrio-2011):
+  name:
+  mainParty: ezker-abertzalea
+  districtBallot: amurrio2011
+
+election.DistrictBallotParty(pse-amurrio-2011):
+  name:
+  mainParty: psoe-pse-ee
+  districtBallot: amurrio2011
+
+election.DistrictBallotParty(pp-amurrio-2011):
+  name:
+  mainParty: pp
+  districtBallot: amurrio2011
+
+election.DistrictBallotParty(aralar-amurrio-2011):
+  name:
+  mainParty: aralar
+  districtBallot: amurrio2011
+
+election.DistrictBallotParty(eb-amurrio-2011):
+  name:
+  mainParty: eb
+  districtBallot: amurrio2011

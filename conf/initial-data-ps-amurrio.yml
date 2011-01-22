@@ -1,0 +1,27 @@
+PollingStation(lezama):
+  municipality: amurrio
+  psDistrict: 1
+  section: 2
+  table: C
+  name: Lezama
+
+PollingStation(arrastaria):
+  municipality: amurrio
+  psDistrict: 1
+  section: 1
+  table: C
+  name: Arrastaria
+
+PollingStation(san-jose):
+  municipality: amurrio
+  psDistrict: 1
+  section: 3
+  table: C
+  name: San Jose
+
+PollingStation(aek):
+  municipality: amurrio
+  psDistrict: 1
+  section: 3
+  table: B
+  name: AEK

@@ -1,0 +1,74 @@
+
+# Arrankudiaga
+election.PollingStationBallot(arrankudiaga-11u2007):
+  census: 734
+  pollingStation: arrankudiaga-11u
+  districtBallot: arrankudiaga2007
+
+# Arakaldo
+election.PollingStationBallot(arakaldo-11u2007):
+  census: 94
+  pollingStation: arakaldo-11u
+  districtBallot: arakaldo2007
+
+# Orozko
+election.PollingStationBallot(orozko-11a2007):
+  census: 794
+  pollingStation: orozko-11a
+  districtBallot: orozko2007
+
+election.PollingStationBallot(orozko-11b2007):
+  census: 816
+  pollingStation: orozko-11b
+  districtBallot: orozko2007
+
+election.PollingStationBallot(orozko-11c2007):
+  census: 338
+  pollingStation: orozko-11c
+  districtBallot: orozko2007
+
+# Urduña
+election.PollingStationBallot(urduña-11u2007):
+  census: 926
+  pollingStation: urduña-11u
+  districtBallot: urduña2007
+
+election.PollingStationBallot(urduña-12a2007):
+  census: 413
+  pollingStation: urduña-12a
+  districtBallot: urduña2007
+
+election.PollingStationBallot(urduña-12b2007):
+  census: 540
+  pollingStation: urduña-12b
+  districtBallot: urduña2007
+
+election.PollingStationBallot(urduña-12c2007):
+  census: 37
+  pollingStation: urduña-12c
+  districtBallot: urduña2007
+
+election.PollingStationBallot(urduña-12d2007):
+  census: 38
+  pollingStation: urduña-12d
+  districtBallot: urduña2007
+
+election.PollingStationBallot(urduña-12e2007):
+  census: 15
+  pollingStation: urduña-12e
+  districtBallot: urduña2007
+
+election.PollingStationBallot(urduña-12f2007):
+  census: 15
+  pollingStation: urduña-12f
+  districtBallot: urduña2007
+
+election.PollingStationBallot(urduña-21a2007):
+  census: 640
+  pollingStation: urduña-21a
+  districtBallot: urduña2007
+
+election.PollingStationBallot(urduña-21b2007):
+  census: 868
+  pollingStation: urduña-21b
+  districtBallot: urduña2007

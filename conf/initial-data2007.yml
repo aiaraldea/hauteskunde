@@ -1,0 +1,104 @@
+election.Election(udal-hauteskundeak-2007):
+  name: Udal hauteskundeak 2007
+  date: 2007-05-27
+
+election.DistrictBallot(aiara2007):
+  election: udal-hauteskundeak-2007
+  district: aiara
+  seats: 11
+
+election.DistrictBallot(amurrio2007):
+  election: udal-hauteskundeak-2007
+  district: amurrio
+  seats: 13
+
+election.DistrictBallot(arakaldo2007):
+  election: udal-hauteskundeak-2007
+  district: arakaldo
+  seats: 5
+
+election.DistrictBallot(arrankudiaga2007):
+  election: udal-hauteskundeak-2007
+  district: arrankudiaga
+  seats: 7
+
+election.DistrictBallot(artziniega2007):
+  election: udal-hauteskundeak-2007
+  district: artziniega
+  seats: 9
+
+election.DistrictBallot(laudio2007):
+  election: udal-hauteskundeak-2007
+  district: laudio
+  seats: 17
+
+election.DistrictBallot(okondo2007):
+  election: udal-hauteskundeak-2007
+  district: okondo
+  seats: 9
+
+election.DistrictBallot(orozko2007):
+  election: udal-hauteskundeak-2007
+  district: orozko
+  seats: 11
+
+election.DistrictBallot(urduña2007):
+  election: udal-hauteskundeak-2007
+  district: urduña
+  seats: 11
+
+# Polling Stations
+election.PollingStationBallot(lezama2007):
+  census: 220
+  pollingStation: lezama
+  districtBallot: amurrio2007
+
+election.PollingStationBallot(arrastaria2007):
+  census: 280
+  pollingStation: arrastaria
+  districtBallot: amurrio2007
+
+
+
+
+#Parties
+
+election.DistrictBallotParty(eaj-aiara-2007):
+  name:
+  mainParty: eaj
+  districtBallot: aiara2007
+
+election.DistrictBallotParty(eaj-amurrio-2007):
+  name:
+  mainParty: eaj
+  districtBallot: amurrio2007
+
+election.DistrictBallotParty(ea-amurrio-2007):
+  name:
+  mainParty: ea
+  districtBallot: amurrio2007
+
+election.DistrictBallotParty(ezker-abertzalea-amurrio-2007):
+  name:
+  mainParty: ezker-abertzalea
+  districtBallot: amurrio2007
+
+election.DistrictBallotParty(pse-amurrio-2007):
+  name:
+  mainParty: psoe-pse-ee
+  districtBallot: amurrio2007
+
+election.DistrictBallotParty(pp-amurrio-2007):
+  name:
+  mainParty: pp
+  districtBallot: amurrio2007
+
+election.DistrictBallotParty(aralar-amurrio-2007):
+  name:
+  mainParty: aralar
+  districtBallot: amurrio2007
+
+election.DistrictBallotParty(eb-amurrio-2007):
+  name:
+  mainParty: eb
+  districtBallot: amurrio2007

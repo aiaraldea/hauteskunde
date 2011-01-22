@@ -1,0 +1,16 @@
+# You can specialize this file for each language.
+# For example, for French create a messages.fr file
+#
+
+code = Code
+name = Name
+district = District
+PollingStation = Polling Station
+PollingStations = Polling Stations
+election = Election
+mainParty = Main Party
+districtBallot = District Ballot
+date = Date
+longName = Long Name
+pollingStation = Polling Station
+census = Census

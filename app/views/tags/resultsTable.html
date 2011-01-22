@@ -1,0 +1,39 @@
+Status: ${district.results.status}
+<table>
+    <thead>
+        <tr>
+            <th></th>
+        #{list items:district.parties, as:'party'}
+        <th>${party.name}</th>
+        #{/list}
+        <th>Whites</th>
+        <th>Nulls</th>
+        <th>Abstentions</th>
+        <th>Census</th>
+        </tr>
+    </thead>
+
+#{list items:district.pollingStations, as:'pollingStation'}
+    <tr>
+        <td>${pollingStation.pollingStation.name}</td>
+        #{list items:district.parties, as:'party'}
+        <td>${pollingStation.results.resultEntriesMap[party]}</td>
+        #{/list}
+        <td>${pollingStation.results.whiteVoteAmount}</td>
+        <td>${pollingStation.results.nullVoteAmount}</td>
+        <td>${pollingStation.results.abstentions}</td>
+        <td>${pollingStation.results.census}</td>
+    </tr>
+#{/list}
+
+    <tr>
+        <td>&{'Total'}</td>
+        #{list items:district.parties, as:'party'}
+        <td>${district.results.resultEntriesMap[party]}</td>
+        #{/list}
+        <td>${district.results.whiteVoteAmount}</td>
+        <td>${district.results.nullVoteAmount}</td>
+        <td>${district.results.abstentions}</td>
+        <td>${district.results.census}</td>
+    </tr>
+</table>

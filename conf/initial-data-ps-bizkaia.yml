@@ -1,0 +1,86 @@
+
+PollingStation(arrankudiaga-11u):
+  municipality: arrankudiaga
+  psDistrict: 1
+  section: 1
+  table: U
+
+PollingStation(arakaldo-11u):
+  municipality: arakaldo
+  psDistrict: 1
+  section: 1
+  table: U
+
+PollingStation(orozko-11a):
+  municipality: orozko
+  psDistrict: 1
+  section: 1
+  table: A
+
+PollingStation(orozko-11b):
+  municipality: orozko
+  psDistrict: 1
+  section: 1
+  table: B
+
+PollingStation(orozko-11c):
+  municipality: orozko
+  psDistrict: 1
+  section: 1
+  table: C
+
+PollingStation(urduña-11u):
+  municipality: urduña
+  psDistrict: 1
+  section: 1
+  table: U
+
+
+PollingStation(urduña-12a):
+  municipality: urduña
+  psDistrict: 1
+  section: 2
+  table: A
+
+
+PollingStation(urduña-12b):
+  municipality: urduña
+  psDistrict: 1
+  section: 2
+  table: B
+
+PollingStation(urduña-12c):
+  municipality: urduña
+  psDistrict: 1
+  section: 2
+  table: C
+
+PollingStation(urduña-12d):
+  municipality: urduña
+  psDistrict: 1
+  section: 2
+  table: D
+
+PollingStation(urduña-12e):
+  municipality: urduña
+  psDistrict: 1
+  section: 2
+  table: E
+
+PollingStation(urduña-12f):
+  municipality: urduña
+  psDistrict: 1
+  section: 2
+  table: F
+
+PollingStation(urduña-21a):
+  municipality: urduña
+  psDistrict: 2
+  section: 1
+  table: A
+
+PollingStation(urduña-21b):
+  municipality: urduña
+  psDistrict: 2
+  section: 1
+  table: B

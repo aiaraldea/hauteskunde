@@ -1,0 +1,30 @@
+#Parties
+Party(eaj):
+  name: EAJ
+  longName: Euzko Alderdi Jeltzalea
+
+Party(ea):
+  name: EA
+  longName: Eusko Alkartasuna
+
+Party(ezker-abertzalea):
+  name: Ezker Abertzalea
+  longName: Ezker Abertzalea
+
+Party(psoe-pse-ee):
+  name: PSOE
+  longName: Partido Socialista de Euskadi - Euskadiko Ezkerra
+
+Party(pp):
+  name: PP
+  longName: Partido Popular del País Vasco
+
+Party(eb):
+  name: EB
+  longName: Ezker Batua
+
+Party(aralar):
+  name: Aralar
+  longName: Aralar
+
+

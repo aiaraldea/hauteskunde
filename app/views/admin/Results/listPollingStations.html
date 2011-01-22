@@ -1,0 +1,15 @@
+#{extends 'CRUD/layout.html' /}
+
+<div id="crudIndex">
+
+	<h2>&{'PollingStations'}</h2>
+
+#{list items:pollingStations, as:'pollingStation'}
+    <p class="pollingStation ${pollingStation_parity}">
+        <a href="@{resultsSheet(pollingStation.id)}">${pollingStation.pollingStation}</a>
+    </p>
+#{/list}
+
+
+</div>
+

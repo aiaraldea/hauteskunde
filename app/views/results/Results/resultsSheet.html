@@ -1,0 +1,88 @@
+#{extends 'results/Results/layout.html' /}
+
+<div id="crudIndex">
+
+    <h2>&{'Results'}: ${result.pollingStationBallot.pollingStation.code} / ${result.pollingStationBallot.pollingStation.name}</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>&{'Results'}</th>
+                    <th width="20%">&{'votes'}</th>
+                    <th width="20%">&{'percentage over votes'}</th>
+                    <th width="20%">&{'percentage over census'}</th>
+                </tr>
+            </thead>
+            <tbody>
+                #{list items:result.parties, as:'party'}
+                    <tr>
+                        <td>
+                            &{party.name}
+                        </td>
+                        <td class="crudNew" >
+                            ${result.getResult(party)}
+                        </td>
+                        <td class="crudNew" >
+                            ${result.getPercentageOverVotes(party)}
+                        </td>
+                        <td class="crudNew" >
+                            ${result.getPercentageOverCensus(party)}
+                        </td>
+                    </tr>
+                #{/list}
+                <tr>
+                    <td>
+                        &{'Nulls'}
+                    </td>
+                    <td class="crudNew" >
+                        ${result.nullVoteAmount}
+                    </td>
+                    <td class="crudNew">
+                    </td>
+                    <td class="crudNew">
+                        ${result.getNullVotePercentageOverCensus()}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &{'Whites'}
+                    </td>
+                    <td class="crudNew" >
+                        ${result.whiteVoteAmount}
+                    </td>
+                    <td class="crudNew">
+                        ${result.getWhiteVotePercentageOverVotes()}
+                    </td>
+                    <td class="crudNew">
+                        ${result.getWhiteVotePercentageOverCensus()}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &{'Abstentions'}
+                    </td>
+                    <td class="crudNew" >
+                        ${result.abstentions}
+                    </td>
+                    <td></td>
+                    <td class="crudNew">
+                        ${result.getAbstentionsPercentage()}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Census
+                    </td>
+                    <td class="crudNew" >
+                        ${result.census}
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+
+</div>
