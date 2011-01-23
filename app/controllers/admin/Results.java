@@ -49,8 +49,7 @@ public class Results extends Controller {
         List<DistrictBallotParty> parties = DistrictBallotParty.find("districtBallot", pollingStation.districtBallot).fetch();
 
         if (result == null) {
-            result = new PollingStationResult();
-            result.pollingStationBallot = pollingStation;
+            result = new PollingStationResult(pollingStation);
             result.save();
         }
 

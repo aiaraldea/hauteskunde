@@ -9,6 +9,11 @@ public class ResultDTO {
     public Long partyId;
     public Integer votes;
 
+    public ResultDTO(Long partyId, Integer votes) {
+        this.partyId = partyId;
+        this.votes = votes;
+    }
+
     public Long getPartyId() {
         return partyId;
     }

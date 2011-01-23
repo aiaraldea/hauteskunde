@@ -21,18 +21,33 @@ public class PollingStationBallot extends Model implements ResultProvider {
     @ManyToOne
     public PollingStation pollingStation;
     public int census;
-    @OneToOne(mappedBy="pollingStationBallot")
+    @OneToOne(mappedBy = "pollingStationBallot")
     public PollingStationResult result;
 
     @Override
     public String toString() {
         return pollingStation + " - " + districtBallot.election.name;
     }
-    
+
+    public static PollingStationBallot findPollingStation(
+            String municipality,
+            String pollingStationDistrict,
+            String pollingStationSection,
+            String pollingStationTable) {
+        return PollingStationBallot.find(
+                "pollingStation.municipality.code = ? "
+                + "and pollingStation.psDistrict = ? "
+                + "and pollingStation.section = ? "
+                + "and pollingStation.table = ?",
+                municipality,
+                pollingStationDistrict,
+                pollingStationSection,
+                pollingStationTable).first();
+    }
+
     public ResultI getResults() {
         if (result == null) {
-            result = new PollingStationResult();
-            result.pollingStationBallot = this;
+            result = new PollingStationResult(this);
         }
         return result;
     }

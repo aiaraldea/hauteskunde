@@ -9,7 +9,6 @@ import javax.persistence.OneToMany;
 import models.District;
 import models.PartyI;
 import models.ResultProvider;
-import models.results.dhont.DHontResult;
 import models.results.dhont.DHontResults;
 import play.db.jpa.Model;
 

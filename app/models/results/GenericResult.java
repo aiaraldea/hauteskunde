@@ -18,7 +18,7 @@ public class GenericResult implements ResultI {
     public Integer countedCensus = 0;
     public Integer nullVoteAmount = null;
     public Integer whiteVoteAmount = null;
-    public Map<PartyI, Integer> resultEntries;
+    public Map<PartyI, Integer> resultEntries = new HashMap<PartyI, Integer>();
     public double status = 0;
 
     public Integer getCensus() {
@@ -50,9 +50,6 @@ public class GenericResult implements ResultI {
     }
 
     public void addVote(PartyI party, int voteAmount) {
-        if (resultEntries == null) {
-            resultEntries = new HashMap<PartyI, Integer>();
-        }
         if (!resultEntries.containsKey(party)) {
             resultEntries.put(party, voteAmount);
         } else {
@@ -91,9 +88,6 @@ public class GenericResult implements ResultI {
     }
 
     public List<PartyI> getParties() {
-        if (resultEntries == null) {
-            return Collections.EMPTY_LIST;
-        }
         Map<Integer, List<PartyI>> m = new TreeMap<Integer, List<PartyI>>();
 
         for (Map.Entry<PartyI, Integer> entry : resultEntries.entrySet()) {

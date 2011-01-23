@@ -12,6 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 import models.PartyI;
+import models.election.DistrictBallotParty;
 import models.election.PollingStationBallot;
 import play.db.jpa.Model;
 
@@ -23,13 +24,71 @@ import play.db.jpa.Model;
 public class PollingStationResult extends Model implements ResultI {
 
     @OneToOne
-    public PollingStationBallot pollingStationBallot;
+    private PollingStationBallot pollingStationBallot;
     public Integer nullVoteAmount = null;
     public Integer whiteVoteAmount = null;
     @OneToMany(mappedBy = "result", cascade = CascadeType.ALL)
     public List<ResultEntry> resultEntries;
     @Transient
     private Map<PartyI, Integer> resultEntriesMap;
+
+    private PollingStationResult(Builder b) {
+        this.pollingStationBallot = b.pollingStationBallot;
+        this.nullVoteAmount = b.nullVoteAmount;
+        this.whiteVoteAmount = b.whiteVoteAmount;
+        resultEntries = new ArrayList<ResultEntry>();
+        for (Builder.ResultPair resultPair : b.resultEntries) {
+            this.resultEntries.add(new ResultEntry(resultPair.party, this, resultPair.votes));
+        }
+        initResultEntriesMap();
+    }
+
+    public PollingStationResult(PollingStationBallot pollingStationBallot) {
+        this.pollingStationBallot = pollingStationBallot;
+    }
+
+    public static class Builder {
+
+        private PollingStationBallot pollingStationBallot;
+        private Integer nullVoteAmount = null;
+        private Integer whiteVoteAmount = null;
+        private List<ResultPair> resultEntries = new ArrayList<ResultPair>();
+
+        public Builder pollingStationBallot(PollingStationBallot pollingStationBallot) {
+            this.pollingStationBallot = pollingStationBallot;
+            return this;
+        }
+
+        public Builder nullVoteAmount(Integer nullVoteAmount) {
+            this.nullVoteAmount = nullVoteAmount;
+            return this;
+        }
+
+        public Builder whiteVoteAmount(Integer whiteVoteAmount) {
+            this.whiteVoteAmount = whiteVoteAmount;
+            return this;
+        }
+
+        public Builder addResult(DistrictBallotParty party, int voteAmount) {
+            resultEntries.add(new ResultPair(party, voteAmount));
+            return this;
+        }
+
+        public PollingStationResult build() {
+            return new PollingStationResult(this);
+        }
+
+        private static class ResultPair {
+
+            DistrictBallotParty party;
+            Integer votes;
+
+            public ResultPair(DistrictBallotParty party, Integer votes) {
+                this.party = party;
+                this.votes = votes;
+            }
+        }
+    }
 
     public Integer getCensus() {
         return pollingStationBallot.census;
@@ -70,10 +129,6 @@ public class PollingStationResult extends Model implements ResultI {
             status = 0;
         }
         return Double.valueOf(status);
-    }
-
-    public boolean isCounted() {
-        return false;
     }
 
     public List<PartyI> getParties() {

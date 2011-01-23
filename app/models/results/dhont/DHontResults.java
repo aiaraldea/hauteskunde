@@ -29,7 +29,7 @@ public class DHontResults {
         for (PartyI partyI : result.getParties()) {
             assignedSeats.put(partyI, 0);
             seatsInDoubt.put(partyI, 0);
-            for (int i = 1; i < seatAmount; i++) {
+            for (int i = 1; i <= seatAmount; i++) {
                 put(partyI, result.getResult(partyI), i);
             }
         }

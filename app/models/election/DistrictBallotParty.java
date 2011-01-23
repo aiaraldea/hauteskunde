@@ -14,6 +14,7 @@ import play.db.jpa.Model;
 public class DistrictBallotParty extends Model implements PartyI {
 
     public String name;
+    public String importName;
     @ManyToOne
     public Party mainParty;
     @ManyToOne

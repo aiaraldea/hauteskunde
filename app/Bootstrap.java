@@ -1,4 +1,5 @@
 
+import init.InitialDataImporter;
 import models.election.Election;
 import play.jobs.Job;
 import play.jobs.OnApplicationStart;
@@ -18,6 +19,7 @@ public class Bootstrap extends Job {
             Fixtures.load("initial-data2007.yml");
             Fixtures.load("initial-data2007-bizkaia.yml");
             Fixtures.load("initial-data2011.yml");
+            InitialDataImporter.importData();
         }
     }
 }
