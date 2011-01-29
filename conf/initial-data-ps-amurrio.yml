@@ -1,27 +1,86 @@
-PollingStation(lezama):
+PollingStation(amurrio-11a):
   municipality: amurrio
   psDistrict: 1
-  section: 2
-  table: C
-  name: Lezama
+  section: 1
+  table: A
 
-PollingStation(arrastaria):
+PollingStation(amurrio-11b):
+  municipality: amurrio
+  psDistrict: 1
+  section: 1
+  table: B
+
+PollingStation(amurrio-11c):
   municipality: amurrio
   psDistrict: 1
   section: 1
   table: C
   name: Arrastaria
 
-PollingStation(san-jose):
+PollingStation(amurrio-12a):
   municipality: amurrio
   psDistrict: 1
-  section: 3
-  table: C
-  name: San Jose
+  section: 2
+  table: A
 
-PollingStation(aek):
+PollingStation(amurrio-12b):
+  municipality: amurrio
+  psDistrict: 1
+  section: 2
+  table: B
+
+PollingStation(amurrio-12c):
+  municipality: amurrio
+  psDistrict: 1
+  section: 2
+  table: C
+  name: Lezama
+
+PollingStation(amurrio-13u):
   municipality: amurrio
   psDistrict: 1
   section: 3
+  table: U
+
+
+PollingStation(amurrio-14a):
+  municipality: amurrio
+  psDistrict: 1
+  section: 4
+  table: A
+
+PollingStation(amurrio-14b):
+  municipality: amurrio
+  psDistrict: 1
+  section: 4
   table: B
-  name: AEK
+
+PollingStation(amurrio-15a):
+  municipality: amurrio
+  psDistrict: 1
+  section: 5
+  table: A
+
+PollingStation(amurrio-15b):
+  municipality: amurrio
+  psDistrict: 1
+  section: 5
+  table: B
+
+PollingStation(amurrio-16a):
+  municipality: amurrio
+  psDistrict: 1
+  section: 6
+  table: A
+
+PollingStation(amurrio-16b):
+  municipality: amurrio
+  psDistrict: 1
+  section: 6
+  table: B
+
+PollingStation(amurrio-17u):
+  municipality: amurrio
+  psDistrict: 1
+  section: 7
+  table: U

@@ -1,0 +1,39 @@
+# Aiara
+PollingStation(aiara-11a):
+  municipality: aiara
+  psDistrict: 1
+  section: 1
+  table: A
+
+PollingStation(aiara-11b):
+  municipality: aiara
+  psDistrict: 1
+  section: 1
+  table: B
+
+PollingStation(aiara-12u):
+  municipality: aiara
+  psDistrict: 1
+  section: 2
+  table: U
+
+#Artziniega
+PollingStation(artziniega-11a):
+  municipality: artziniega
+  psDistrict: 1
+  section: 1
+  table: A
+
+PollingStation(artziniega-11b):
+  municipality: artziniega
+  psDistrict: 1
+  section: 1
+  table: B
+
+
+#Okondo
+PollingStation(okondo-11u):
+  municipality: okondo
+  psDistrict: 1
+  section: 1
+  table: U

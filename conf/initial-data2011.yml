@@ -38,12 +38,12 @@ election.DistrictBallot(urduña2011):
 # Polling Stations
 election.PollingStationBallot(lezama2011):
   census: 220
-  pollingStation: lezama
+  pollingStation: amurrio-12c
   districtBallot: amurrio2011
 
 election.PollingStationBallot(arrastaria2011):
   census: 280
-  pollingStation: arrastaria
+  pollingStation: amurrio-11c
   districtBallot: amurrio2011
 
 

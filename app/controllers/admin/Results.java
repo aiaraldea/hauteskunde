@@ -11,6 +11,7 @@ import models.PartyI;
 import models.election.PollingStationBallot;
 import models.results.PollingStationResult;
 import models.results.ResultEntry;
+import play.cache.Cache;
 import play.mvc.Controller;
 import play.mvc.Scope.Flash;
 
@@ -84,6 +85,7 @@ public class Results extends Controller {
             }
         }
 
+        pollingStation.districtBallot.clearCache();
         resultsSheet(pollingStationId);
     }
 

@@ -1,0 +1,220 @@
+
+# Aiara
+election.PollingStationBallot(aiara-11a2007):
+  census: 958
+  pollingStation: aiara-11a
+  districtBallot: aiara2007
+
+election.PollingStationBallot(aiara-11b2007):
+  census: 456
+  pollingStation: aiara-11b
+  districtBallot: aiara2007
+
+election.PollingStationBallot(aiara-12u2007):
+  census: 787
+  pollingStation: aiara-12u
+  districtBallot: aiara2007
+
+# Artziniega
+election.PollingStationBallot(artziniega-11a2007):
+  census: 698
+  pollingStation: artziniega-11a
+  districtBallot: artziniega2007
+
+election.PollingStationBallot(artziniega-11b2007):
+  census: 719
+  pollingStation: artziniega-11b
+  districtBallot: artziniega2007
+
+# Amurrio
+election.PollingStationBallot(amurrio-11a2007):
+  census: 755
+  pollingStation: amurrio-11a
+  districtBallot: amurrio2007
+
+election.PollingStationBallot(amurrio-11b2007):
+  census: 638
+  pollingStation: amurrio-11b
+  districtBallot: amurrio2007
+
+election.PollingStationBallot(amurrio-11c2007):
+  census: 300
+  pollingStation: amurrio-11c
+  districtBallot: amurrio2007
+
+election.PollingStationBallot(amurrio-12a2007):
+  census: 656
+  pollingStation: amurrio-12a
+  districtBallot: amurrio2007
+
+election.PollingStationBallot(amurrio-12b2007):
+  census: 634
+  pollingStation: amurrio-12b
+  districtBallot: amurrio2007
+
+election.PollingStationBallot(amurrio-12c2007):
+  census: 236
+  pollingStation: amurrio-12c
+  districtBallot: amurrio2007
+
+election.PollingStationBallot(amurrio-13u2007):
+  census: 787
+  pollingStation: amurrio-13u
+  districtBallot: amurrio2007
+
+election.PollingStationBallot(amurrio-14a2007):
+  census: 615
+  pollingStation: amurrio-14a
+  districtBallot: amurrio2007
+
+election.PollingStationBallot(amurrio-14b2007):
+  census: 729
+  pollingStation: amurrio-14b
+  districtBallot: amurrio2007
+
+election.PollingStationBallot(amurrio-15a2007):
+  census: 536
+  pollingStation: amurrio-15a
+  districtBallot: amurrio2007
+
+election.PollingStationBallot(amurrio-15b2007):
+  census: 483
+  pollingStation: amurrio-15b
+  districtBallot: amurrio2007
+
+election.PollingStationBallot(amurrio-16a2007):
+  census: 530
+  pollingStation: amurrio-16a
+  districtBallot: amurrio2007
+
+election.PollingStationBallot(amurrio-16b2007):
+  census: 538
+  pollingStation: amurrio-16b
+  districtBallot: amurrio2007
+
+election.PollingStationBallot(amurrio-17u2007):
+  census: 831
+  pollingStation: amurrio-17u
+  districtBallot: amurrio2007
+
+# Laudio
+election.PollingStationBallot(laudio-11a2007):
+  census: 804
+  pollingStation: laudio-11a
+  districtBallot: laudio2007
+
+election.PollingStationBallot(laudio-11b2007):
+  census: 851
+  pollingStation: laudio-11b
+  districtBallot: laudio2007
+
+election.PollingStationBallot(laudio-12a2007):
+  census: 829
+  pollingStation: laudio-12a
+  districtBallot: laudio2007
+
+election.PollingStationBallot(laudio-12b2007):
+  census: 913
+  pollingStation: laudio-12b
+  districtBallot: laudio2007
+
+election.PollingStationBallot(laudio-13a2007):
+  census: 524
+  pollingStation: laudio-13a
+  districtBallot: laudio2007
+
+election.PollingStationBallot(laudio-13b2007):
+  census: 569
+  pollingStation: laudio-13b
+  districtBallot: laudio2007
+
+election.PollingStationBallot(laudio-14u2007):
+  census: 654
+  pollingStation: laudio-14u
+  districtBallot: laudio2007
+
+election.PollingStationBallot(laudio-15a2007):
+  census: 742
+  pollingStation: laudio-15a
+  districtBallot: laudio2007
+
+election.PollingStationBallot(laudio-15b2007):
+  census: 808
+  pollingStation: laudio-15b
+  districtBallot: laudio2007
+
+election.PollingStationBallot(laudio-16a2007):
+  census: 895
+  pollingStation: laudio-16a
+  districtBallot: laudio2007
+
+election.PollingStationBallot(laudio-16b2007):
+  census: 878
+  pollingStation: laudio-16b
+  districtBallot: laudio2007
+
+election.PollingStationBallot(laudio-17a2007):
+  census: 589
+  pollingStation: laudio-17a
+  districtBallot: laudio2007
+
+election.PollingStationBallot(laudio-17b2007):
+  census: 541
+  pollingStation: laudio-17b
+  districtBallot: laudio2007
+
+election.PollingStationBallot(laudio-18a2007):
+  census: 549
+  pollingStation: laudio-18a
+  districtBallot: laudio2007
+
+election.PollingStationBallot(laudio-18b2007):
+  census: 569
+  pollingStation: laudio-18b
+  districtBallot: laudio2007
+
+election.PollingStationBallot(laudio-19a2007):
+  census: 581
+  pollingStation: laudio-19a
+  districtBallot: laudio2007
+
+election.PollingStationBallot(laudio-19b2007):
+  census: 576
+  pollingStation: laudio-19b
+  districtBallot: laudio2007
+
+election.PollingStationBallot(laudio-110a2007):
+  census: 744
+  pollingStation: laudio-110a
+  districtBallot: laudio2007
+
+election.PollingStationBallot(laudio-110b2007):
+  census: 767
+  pollingStation: laudio-110b
+  districtBallot: laudio2007
+
+election.PollingStationBallot(laudio-111u2007):
+  census: 676
+  pollingStation: laudio-111u
+  districtBallot: laudio2007
+
+election.PollingStationBallot(laudio-112u2007):
+  census: 586
+  pollingStation: laudio-112u
+  districtBallot: laudio2007
+
+election.PollingStationBallot(laudio-113a2007):
+  census: 542
+  pollingStation: laudio-113a
+  districtBallot: laudio2007
+
+election.PollingStationBallot(laudio-113b2007):
+  census: 519
+  pollingStation: laudio-113b
+  districtBallot: laudio2007
+
+# Okondo
+election.PollingStationBallot(okondo-11u2007):
+  census: 893
+  pollingStation: okondo-11u
+  districtBallot: okondo2007

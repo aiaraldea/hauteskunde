@@ -41,4 +41,10 @@ public class DistrictBallotParty extends Model implements PartyI {
     public String toString() {
         return getName() + "(" + districtBallot + ")";
     }
+
+    @Override
+    public void _save() {
+        districtBallot.clearCache();
+        super._save();
+    }
 }

@@ -10,6 +10,7 @@ import models.District;
 import models.PartyI;
 import models.ResultProvider;
 import models.results.dhont.DHontResults;
+import play.cache.Cache;
 import play.db.jpa.Model;
 
 /**
@@ -36,22 +37,54 @@ public class DistrictBallot extends Model implements ResultProvider {
     }
 
     public ResultI getResults() {
-        DistrictResult result = new DistrictResult();
-        for (PollingStationBallot pollingStationBallot : pollingStations) {
-            for (PartyI party : pollingStationBallot.getResults().getParties()) {
-                result.addVote(party, pollingStationBallot.getResults().getResult(party));
+        Object cached = Cache.get(getResultCacheKey());
+        if (cached == null) {
+            DistrictResult result = new DistrictResult();
+            for (PollingStationBallot pollingStationBallot : pollingStations) {
+                for (PartyI party : pollingStationBallot.getResults().getParties()) {
+                    result.addVote(party, pollingStationBallot.getResults().getResult(party));
+                }
+                result.addWhiteVote(pollingStationBallot.getResults().getWhiteVoteAmount());
+                result.addNullVote(pollingStationBallot.getResults().getNullVoteAmount());
+                result.addCensus(pollingStationBallot.census);
+                if (pollingStationBallot.getResults().getStatus().equals(Double.valueOf(100))) {
+                    result.addCountedCensus(pollingStationBallot.census);
+                }
             }
-            result.addWhiteVote(pollingStationBallot.getResults().getWhiteVoteAmount());
-            result.addNullVote(pollingStationBallot.getResults().getNullVoteAmount());
-            result.addCensus(pollingStationBallot.census);
-            if (pollingStationBallot.getResults().getStatus().equals(Double.valueOf(100))) {
-                result.addCountedCensus(pollingStationBallot.census);
-            }
+            Cache.set(getResultCacheKey(), result);
+            return result;
+        } else {
+            return (ResultI) cached;
         }
-        return result;
+    }
+
+    private String getResultCacheKey() {
+        return "results_" + toString();
     }
 
     public DHontResults getDHontResults() {
-        return new DHontResults(getResults(), seats);
+        Object cached = Cache.get(getDHontResultCacheKey());
+        if (cached == null) {
+            DHontResults r = new DHontResults(getResults(), seats);
+            Cache.set(getDHontResultCacheKey(), r);
+            return r;
+        } else {
+            return (DHontResults) cached;
+        }
+    }
+
+    private String getDHontResultCacheKey() {
+        return "dHontResults_" + toString();
+    }
+
+    public void clearCache() {
+        Cache.delete(getResultCacheKey());
+        Cache.delete(getDHontResultCacheKey());
+    }
+
+    @Override
+    public void _save() {
+        clearCache();
+        super._save();
     }
 }

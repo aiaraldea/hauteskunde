@@ -14,9 +14,12 @@ public class Bootstrap extends Job {
         if (Election.count() == 0) {
             Fixtures.load("initial-data.yml");
             Fixtures.load("initial-data-parties.yml");
+            Fixtures.load("initial-data-ps-araba.yml");
             Fixtures.load("initial-data-ps-amurrio.yml");
+            Fixtures.load("initial-data-ps-laudio.yml");
             Fixtures.load("initial-data-ps-bizkaia.yml");
             Fixtures.load("initial-data2007.yml");
+            Fixtures.load("initial-data2007-araba.yml");
             Fixtures.load("initial-data2007-bizkaia.yml");
             Fixtures.load("initial-data2011.yml");
             InitialDataImporter.importData();

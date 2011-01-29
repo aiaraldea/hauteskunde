@@ -1,5 +1,6 @@
 package models.results.dhont;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -13,7 +14,7 @@ import models.results.ResultI;
  *
  * @author inaki
  */
-public class DHontResults {
+public class DHontResults implements Serializable {
 
     private Map<Integer, Map<Integer, List<DHontResultEntry>>> resultsMap =
             new TreeMap<Integer, Map<Integer, List<DHontResultEntry>>>(Collections.reverseOrder());

@@ -54,4 +54,10 @@ public class PollingStationBallot extends Model implements ResultProvider {
         }
         return result;
     }
+
+    @Override
+    public void _save() {
+        districtBallot.clearCache();
+        super._save();
+    }
 }

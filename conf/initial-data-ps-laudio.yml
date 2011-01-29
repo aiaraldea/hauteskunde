@@ -1,0 +1,137 @@
+PollingStation(laudio-11a):
+  municipality: laudio
+  psDistrict: 1
+  section: 1
+  table: A
+
+PollingStation(laudio-11b):
+  municipality: laudio
+  psDistrict: 1
+  section: 1
+  table: B
+
+PollingStation(laudio-12a):
+  municipality: laudio
+  psDistrict: 1
+  section: 2
+  table: A
+
+PollingStation(laudio-12b):
+  municipality: laudio
+  psDistrict: 1
+  section: 2
+  table: B
+
+PollingStation(laudio-13a):
+  municipality: laudio
+  psDistrict: 1
+  section: 3
+  table: A
+
+PollingStation(laudio-13b):
+  municipality: laudio
+  psDistrict: 1
+  section: 3
+  table: B
+
+PollingStation(laudio-14u):
+  municipality: laudio
+  psDistrict: 1
+  section: 4
+  table: U
+
+PollingStation(laudio-15a):
+  municipality: laudio
+  psDistrict: 1
+  section: 5
+  table: A
+
+PollingStation(laudio-15b):
+  municipality: laudio
+  psDistrict: 1
+  section: 5
+  table: B
+
+PollingStation(laudio-16a):
+  municipality: laudio
+  psDistrict: 1
+  section: 6
+  table: A
+
+PollingStation(laudio-16b):
+  municipality: laudio
+  psDistrict: 1
+  section: 6
+  table: B
+
+PollingStation(laudio-17a):
+  municipality: laudio
+  psDistrict: 1
+  section: 7
+  table: A
+
+PollingStation(laudio-17b):
+  municipality: laudio
+  psDistrict: 1
+  section: 7
+  table: B
+
+PollingStation(laudio-18a):
+  municipality: laudio
+  psDistrict: 1
+  section: 8
+  table: A
+
+PollingStation(laudio-18b):
+  municipality: laudio
+  psDistrict: 1
+  section: 8
+  table: B
+
+PollingStation(laudio-19a):
+  municipality: laudio
+  psDistrict: 1
+  section: 9
+  table: A
+
+PollingStation(laudio-19b):
+  municipality: laudio
+  psDistrict: 1
+  section: 9
+  table: B
+
+PollingStation(laudio-110a):
+  municipality: laudio
+  psDistrict: 1
+  section: 10
+  table: A
+
+PollingStation(laudio-110b):
+  municipality: laudio
+  psDistrict: 1
+  section: 10
+  table: B
+
+PollingStation(laudio-111u):
+  municipality: laudio
+  psDistrict: 1
+  section: 11
+  table: U
+
+PollingStation(laudio-112u):
+  municipality: laudio
+  psDistrict: 1
+  section: 12
+  table: U
+
+PollingStation(laudio-113a):
+  municipality: laudio
+  psDistrict: 1
+  section: 13
+  table: A
+
+PollingStation(laudio-113b):
+  municipality: laudio
+  psDistrict: 1
+  section: 13
+  table: B

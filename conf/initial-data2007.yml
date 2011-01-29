@@ -47,19 +47,6 @@ election.DistrictBallot(urduña2007):
   district: urduña
   seats: 11
 
-# Polling Stations
-election.PollingStationBallot(lezama2007):
-  census: 220
-  pollingStation: lezama
-  districtBallot: amurrio2007
-
-election.PollingStationBallot(arrastaria2007):
-  census: 280
-  pollingStation: arrastaria
-  districtBallot: amurrio2007
-
-
-
 
 #Parties
 
@@ -145,43 +132,202 @@ election.DistrictBallotParty(ure-ebb-urduna-2007):
   districtBallot: urduña2007
   importName: "URE-EEB"
 
+# Orozko
+election.DistrictBallotParty(eaj-orozko-2007):
+  name:
+  mainParty: eaj
+  districtBallot: orozko2007
+  importName: "EAJ-PNV"
 
+election.DistrictBallotParty(ea-orozko-2007):
+  name:
+  mainParty: ea
+  districtBallot: orozko2007
+  importName: "EA"
+
+election.DistrictBallotParty(ezker-abertzalea-orozko-2007):
+  name: "EAE-ANV"
+  mainParty: ezker-abertzalea
+  districtBallot: orozko2007
+  importName: "EAE / ANV"
+
+election.DistrictBallotParty(pse-orozko-2007):
+  name:
+  mainParty: psoe-pse-ee
+  districtBallot: orozko2007
+  importName: "PSE-EE/PSOE"
+
+election.DistrictBallotParty(pp-orozko-2007):
+  name:
+  mainParty: pp
+  districtBallot: orozko2007
+  importName: "PP"
+
+election.DistrictBallotParty(aralar-orozko-2007):
+  name: "EB/ARALAR"
+  mainParty: aralar
+  districtBallot: orozko2007
+  importName: "EB / ARALAR"
+
+# Aiara
 election.DistrictBallotParty(eaj-aiara-2007):
   name:
   mainParty: eaj
   districtBallot: aiara2007
+  importName: "EAJ-PNV"
 
+election.DistrictBallotParty(ea-aiara-2007):
+  name:
+  mainParty: ea
+  districtBallot: aiara2007
+  importName: "EA"
+
+election.DistrictBallotParty(pp-aiara-2007):
+  name:
+  mainParty: pp
+  districtBallot: aiara2007
+  importName: "PP"
+
+election.DistrictBallotParty(pse-aiara-2007):
+  name:
+  mainParty: psoe-pse-ee
+  districtBallot: aiara2007
+  importName: "PSE-EE/PSOE"
+
+# Artziniega
+election.DistrictBallotParty(eaj-artziniega-2007):
+  name:
+  mainParty: eaj
+  districtBallot: artziniega2007
+  importName: "EAJ-PNV"
+
+election.DistrictBallotParty(ea-artziniega-2007):
+  name:
+  mainParty: ea
+  districtBallot: artziniega2007
+  importName: "EA"
+
+election.DistrictBallotParty(pp-artziniega-2007):
+  name:
+  mainParty: pp
+  districtBallot: artziniega2007
+  importName: "PP"
+
+election.DistrictBallotParty(pse-artziniega-2007):
+  name:
+  mainParty: psoe-pse-ee
+  districtBallot: artziniega2007
+  importName: "PSE-EE/PSOE"
+
+election.DistrictBallotParty(aralar-artziniega-2007):
+  name:
+  mainParty: aralar
+  districtBallot: artziniega2007
+  importName: "ARALAR"
+
+# Amurrio
 election.DistrictBallotParty(eaj-amurrio-2007):
   name:
   mainParty: eaj
   districtBallot: amurrio2007
+  importName: "EAJ-PNV"
 
 election.DistrictBallotParty(ea-amurrio-2007):
   name:
   mainParty: ea
   districtBallot: amurrio2007
+  importName: "EA"
 
 election.DistrictBallotParty(ezker-abertzalea-amurrio-2007):
-  name:
+  name: "EAE-ANV"
   mainParty: ezker-abertzalea
   districtBallot: amurrio2007
+  importName: "EAE / ANV"
 
 election.DistrictBallotParty(pse-amurrio-2007):
   name:
   mainParty: psoe-pse-ee
   districtBallot: amurrio2007
+  importName: "PSE-EE/PSOE"
 
 election.DistrictBallotParty(pp-amurrio-2007):
   name:
   mainParty: pp
   districtBallot: amurrio2007
+  importName: "PP"
 
 election.DistrictBallotParty(aralar-amurrio-2007):
   name:
   mainParty: aralar
   districtBallot: amurrio2007
+  importName: "ARALAR"
 
 election.DistrictBallotParty(eb-amurrio-2007):
   name:
   mainParty: eb
   districtBallot: amurrio2007
+  importName: "EB"
+
+#Laudio
+election.DistrictBallotParty(eaj-laudio-2007):
+  name:
+  mainParty: eaj
+  districtBallot: laudio2007
+  importName: "EAJ-PNV"
+
+election.DistrictBallotParty(ea-laudio-2007):
+  name:
+  mainParty: ea
+  districtBallot: laudio2007
+  importName: "EA"
+
+election.DistrictBallotParty(ezker-abertzalea-laudio-2007):
+  name: "EAE-ANV"
+  mainParty: ezker-abertzalea
+  districtBallot: laudio2007
+  importName: "EAE / ANV"
+
+election.DistrictBallotParty(pse-laudio-2007):
+  name:
+  mainParty: psoe-pse-ee
+  districtBallot: laudio2007
+  importName: "PSE-EE/PSOE"
+
+election.DistrictBallotParty(pp-laudio-2007):
+  name:
+  mainParty: pp
+  districtBallot: laudio2007
+  importName: "PP"
+
+election.DistrictBallotParty(aralar-laudio-2007):
+  name:
+  mainParty: aralar
+  districtBallot: laudio2007
+  importName: "EB / ARALAR"
+
+#Okondo
+election.DistrictBallotParty(eaj-okondo-2007):
+  name:
+  mainParty: eaj
+  districtBallot: okondo2007
+  importName: "EAJ-PNV"
+
+election.DistrictBallotParty(ea-okondo-2007):
+  name:
+  mainParty: ea
+  districtBallot: okondo2007
+  importName: "EA"
+
+election.DistrictBallotParty(pp-okondo-2007):
+  name:
+  mainParty: pp
+  districtBallot: okondo2007
+  importName: "PP"
+
+election.DistrictBallotParty(pse-okondo-2007):
+  name:
+  mainParty: psoe-pse-ee
+  districtBallot: okondo2007
+  importName: "PSE-EE/PSOE"
+
+# O

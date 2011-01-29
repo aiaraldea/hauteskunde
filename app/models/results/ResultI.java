@@ -1,5 +1,6 @@
 package models.results;
 
+import java.io.Serializable;
 import java.util.List;
 import models.PartyI;
 
@@ -7,7 +8,7 @@ import models.PartyI;
  *
  * @author inaki
  */
-public interface ResultI {
+public interface ResultI extends Serializable {
 
     List<PartyI> getParties();
 
