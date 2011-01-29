@@ -30,15 +30,18 @@ public class PollingStationBallot extends Model implements ResultProvider {
     }
 
     public static PollingStationBallot findPollingStation(
+            String state,
             String municipality,
             String pollingStationDistrict,
             String pollingStationSection,
             String pollingStationTable) {
         return PollingStationBallot.find(
-                "pollingStation.municipality.code = ? "
+                "pollingStation.municipality.state = ? "
+                + "and pollingStation.municipality.code = ? "
                 + "and pollingStation.psDistrict = ? "
                 + "and pollingStation.section = ? "
                 + "and pollingStation.table = ?",
+                state,
                 municipality,
                 pollingStationDistrict,
                 pollingStationSection,

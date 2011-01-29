@@ -12,6 +12,7 @@ import play.db.jpa.Model;
 @Entity
 public class Municipality extends Model {
 
+    public String state;
     public String code;
     public String name;
     @OneToMany(mappedBy = "municipality")

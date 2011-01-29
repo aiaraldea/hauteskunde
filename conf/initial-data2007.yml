@@ -63,6 +63,89 @@ election.PollingStationBallot(arrastaria2007):
 
 #Parties
 
+#Arakaldo
+election.DistrictBallotParty(eaj-arakaldo-2007):
+  name:
+  mainParty: eaj
+  districtBallot: arakaldo2007
+  importName: "EAJ-PNV"
+
+election.DistrictBallotParty(ezker-abertzalea-arakaldo-2007):
+  name: "EAE-ANV"
+  mainParty: ezker-abertzalea
+  districtBallot: arakaldo2007
+  importName: "EAE / ANV"
+
+election.DistrictBallotParty(pp-arakaldo-2007):
+  name:
+  mainParty: pp
+  districtBallot: arakaldo2007
+  importName: "PP"
+
+#Arrankudiaga
+election.DistrictBallotParty(eaj-arrankudiaga-2007):
+  name:
+  mainParty: eaj
+  districtBallot: arrankudiaga2007
+  importName: "EAJ-PNV"
+
+election.DistrictBallotParty(pp-arrankudiaga-2007):
+  name:
+  mainParty: pp
+  districtBallot: arrankudiaga2007
+  importName: "PP"
+
+election.DistrictBallotParty(pse-arrankudiaga-2007):
+  name:
+  mainParty: psoe-pse-ee
+  districtBallot: arrankudiaga2007
+  importName: "PSE-EE/PSOE"
+
+election.DistrictBallotParty(ezker-abertzalea-arrankudiaga-2007):
+  name:
+  mainParty: ezker-abertzalea
+  districtBallot: arrankudiaga2007
+  importName: "EAE / ANV"
+
+
+# Urduña
+election.DistrictBallotParty(eaj-urduna-2007):
+  name:
+  mainParty: eaj
+  districtBallot: urduña2007
+  importName: "EAJ-PNV"
+
+election.DistrictBallotParty(pp-urduna-2007):
+  name:
+  mainParty: pp
+  districtBallot: urduña2007
+  importName: "PP"
+
+election.DistrictBallotParty(pse-urduna-2007):
+  name:
+  mainParty: psoe-pse-ee
+  districtBallot: urduña2007
+  importName: "PSE-EE/PSOE"
+
+election.DistrictBallotParty(aralar-urduna-2007):
+  name: EB / Aralar
+  mainParty: aralar
+  districtBallot: urduña2007
+  importName: "EB / ARALAR"
+
+election.DistrictBallotParty(ea-urduna-2007):
+  name:
+  mainParty: ea
+  districtBallot: urduña2007
+  importName: "EA"
+
+election.DistrictBallotParty(ure-ebb-urduna-2007):
+  name:
+  mainParty: ure-ebb
+  districtBallot: urduña2007
+  importName: "URE-EEB"
+
+
 election.DistrictBallotParty(eaj-aiara-2007):
   name:
   mainParty: eaj

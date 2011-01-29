@@ -27,4 +27,7 @@ Party(aralar):
   name: Aralar
   longName: Aralar
 
+Party(ure-ebb):
+  name: URE-EBB
+  longName: URE-EBB
 

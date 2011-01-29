@@ -26,37 +26,46 @@ District(urduña):
   name: Urduña
 
 Municipality(amurrio):
-  code: 002
+  state: "01"
+  code: "002"
   name: Amurrio
 
 Municipality(aiara):
-  code: 010
+  state: "01"
+  code: "010"
   name: Aiara
 
 Municipality(artziniega):
-  code: 004
+  state: "01"
+  code: "004"
   name: Artziniega
 
 Municipality(laudio):
-  code: 036
+  state: "01"
+  code: "036"
   name: Laudio
 
 Municipality(okondo):
-  code: 042
+  state: "01"
+  code: "042"
   name: Okondo
 
 Municipality(arakaldo):
-  code: 005
+  state: "48"
+  code: "005"
   name: Arakaldo
 
 Municipality(arrankudiaga):
-  code: 009
+  state: "48"
+  code: "009"
   name: Arrankudiaga
 
 Municipality(orozko):
-  code: 075
+  state: "48"
+  code: "075"
   name: Orozko
 
 Municipality(urduña):
-  code: 074
+  state: "48"
+  code: "074"
   name: Urduña
