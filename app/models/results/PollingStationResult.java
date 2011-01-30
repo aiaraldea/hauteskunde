@@ -139,10 +139,12 @@ public class PollingStationResult extends Model implements ResultI {
         Map<Integer, List<PartyI>> m = new TreeMap<Integer, List<PartyI>>();
 
         for (Map.Entry<PartyI, Integer> entry : resultEntriesMap.entrySet()) {
-            if (!m.containsKey(entry.getValue())) {
-                m.put(entry.getValue(), new ArrayList<PartyI>());
+            if (entry.getValue() != null) {
+                if (!m.containsKey(entry.getValue())) {
+                    m.put(entry.getValue(), new ArrayList<PartyI>());
+                }
+                m.get(entry.getValue()).add(entry.getKey());
             }
-            m.get(entry.getValue()).add(entry.getKey());
         }
 
         List l = new ArrayList();

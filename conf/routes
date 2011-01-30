@@ -10,10 +10,22 @@ GET     /public/                                staticDir:public
 
 # Administration
 GET     /admin/results                          admin.Results.listElections
-GET     /admin/results/{action}                 admin.Results.{action}
+GET     /admin/results/{electionId}             admin.Results.listDistricts
+GET     /admin/results/district/{districtId}          admin.Results.listPollingStations
+GET     /admin/results/pollingStation/{pollingStationId}          admin.Results.resultsSheet
+POST    /admin/results/pollingStation/{pollingStationId}          admin.Results.save
 *       /admin                                  module:crud
 
+#Results
+GET     /results                                results.Results.index
+GET     /results/{electionId}                   results.Results.listDistricts
+GET     /results/district/{districtId}          results.Results.listPollingStations
+GET     /results/pollingStation/{pollingStationId}          results.Results.resultsSheet
 
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}
+
+# Import Secure routes
+*       /                                       module:secure
+
 

@@ -3,8 +3,10 @@
 <div id="crudIndex">
 
     <h2>&{'Results'}: ${pollingStation.pollingStation.code} / ${pollingStation.pollingStation.name}</h2>
+
     #{form @save()}
 
+        <input type="hidden" name="pollingStationId" value="${pollingStation.id}" />
         <table>
             <thead>
                 <tr>
@@ -60,7 +62,7 @@
             </tbody>
         </table>
         <p>
-            <input type="submit" value="Save" />
+            <input type="submit" value="&{'crud.save'}" />
         </p>
 
     #{/form}

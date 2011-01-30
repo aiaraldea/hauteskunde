@@ -1,0 +1,79 @@
+# You can specialize this file for each language.
+# For example, for French create a messages.fr file
+#
+
+code = Code
+name = Izena
+district = District
+PollingStation = Polling Station
+PollingStations = Polling Stations
+election = Hauteskundea
+mainParty = Alderdi nagusia
+districtBallot = District Ballot
+date = Data
+longName = Izen luzea
+pollingStation = Polling Station
+census = Census
+
+Elections=Hauteskundeak
+Votes=Botoak
+Status=Egoera
+Total=Guztira
+Whites=Zuriak
+Nulls=Nuloak
+Abstentions=Abstentzioak
+Result=Emaitza
+Results=Emaitzak
+dhont_table=D'Hont Taula
+
+Add=Gehitu
+results.title=Hauteskundeen emaitzak
+
+
+# Default CRUD messages
+# ~~~~~~
+
+crud.title=Kudeaketa
+crud.home=Nagusia
+crud.blank=Berria
+crud.index.title=Hautatu objektu bat editatzeko
+crud.index.objectType=Objektu mota
+crud.index.action=
+crud.index.add=Gehitu
+crud.add=Gehitu &{%s}
+crud.list.title=&{%s}
+crud.list.size=%d &{%s}
+crud.list.totalSize=%d total
+crud.pagination.previous=« Aurrekoa
+crud.pagination.next=Hurrengoa »
+crud.pagination.last=Azkena »»
+crud.pagination.first=«« Lehenengoa
+crud.show.title=Editatu &{%s}
+crud.save=Gorde
+crud.saveAndContinue=Gorde eta jarraitu editatzen
+crud.cancel=Bertan behera utzi
+crud.hasErrors=Mesedez, arazoak zuzendu
+crud.blank.title=Gehitu &{%s}
+crud.saveAndAddAnother=Gorde eta sortu beste bat
+crud.delete=Ezabatu &{%s}
+crud.created=&{%s} sortu da
+crud.saved=&{%s} gorde da
+crud.deleted=&{%s} ezabatu da
+crud.delete.error=Ezin da objektu hau ezabatu
+crud.search=Bilatu
+crud.none=(Bat ere ez)
+crud.selectValue=(Balio bat hautatu)
+
+crud.help.required=Beharrezkoa.
+crud.help.minlength=Gutzieneko luzera %d da.
+crud.help.maxlength=Gehieneko luzera %d da.
+crud.help.email=Valid email address.
+crud.help.dateformat=&{%s} format.
+crud.help.numeric=Numeric.
+crud.help.min=Must be greater than %d.
+crud.help.future=In the future.
+crud.help.past=In the past.
+crud.help.after=After %s.
+crud.help.before=Before %s.
+crud.help.range=Between %d and %d
+

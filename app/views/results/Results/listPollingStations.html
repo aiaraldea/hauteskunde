@@ -4,13 +4,17 @@
 
 	<h2>${district.district.name}</h2>
 
-Status: % ${district.results.status.format('00.00')}
+&{'Status'}: % ${district.results.status.format('00.00')}
 <!-- the tabs -->
 <ul class="css-tabs">
 	<li><a href="#">&{'Votes'}</a></li>
 	<li><a href="#">&{'Percentage Over Votes'}</a></li>
 	<li><a href="#">&{'Percentage Over Census'}</a></li>
-	<li><a href="#">&{'DHontTable Table'}</a></li>
+	<li><a href="#">&{'dhont_table'}</a></li>
+
+#{if !district.allPartiesLegal}
+	<li><a href="#">&{'dhont_table_only_legal'}</a></li>
+#{/if}
 </ul>
 
 <!-- tab "panes" -->
@@ -24,10 +28,10 @@ Status: % ${district.results.status.format('00.00')}
         #{list items:district.results.parties, as:'party'}
         <th>${party.name}</th>
         #{/list}
-        <th>Whites</th>
-        <th>Nulls</th>
-        <th>Abstentions</th>
-        <th>Census</th>
+        <th>&{'Whites'}</th>
+        <th>&{'Nulls'}</th>
+        <th>&{'Abstentions'}</th>
+        <th>&{'Census'}</th>
         </tr>
     </thead>
 
@@ -65,8 +69,8 @@ Status: % ${district.results.status.format('00.00')}
         #{list items:district.results.parties, as:'party'}
         <th>${party.name}</th>
         #{/list}
-        <th>Whites</th>
-        <th>Census</th>
+        <th>&{'Whites'}</th>
+        <th>&{'Census'}</th>
         </tr>
     </thead>
 
@@ -102,10 +106,10 @@ Status: % ${district.results.status.format('00.00')}
         #{list items:district.results.parties, as:'party'}
         <th>${party.name}</th>
         #{/list}
-        <th>Whites</th>
-        <th>Nulls</th>
-        <th>Abstentions</th>
-        <th>Census</th>
+        <th>&{'Whites'}</th>
+        <th>&{'Nulls'}</th>
+        <th>&{'Abstentions'}</th>
+        <th>&{'Census'}</th>
         </tr>
     </thead>
 
@@ -179,6 +183,56 @@ Status: % ${district.results.status.format('00.00')}
     </tr>
 </table>
         </div>
+
+
+
+#{if !district.allPartiesLegal }
+	<div>
+<table>
+    <thead>
+        <tr>
+            <th></th>
+        #{list items:district.results.parties, as:'party'}
+        <th>${party.name}</th>
+        #{/list}
+        </tr>
+    </thead>
+
+#{list items:1..district.seats, as:'divisor'}
+    <tr>
+        <td>1 / ${divisor}</td>
+        #{list items:district.results.parties, as:'party'}
+        <td>
+            ${district.results.getResult(party) == null ? 0 : Math.rint(district.results.getResult(party) / divisor).toInteger()}
+
+            #{if district.getDHontResultsOnlyLegal().getResult(party, divisor) != null && !district.getDHontResultsOnlyLegal().getResult(party, divisor).tie }
+                ( ${district.getDHontResultsOnlyLegal().getResult(party, divisor)?.order} )
+            #{/if}
+
+            #{if district.getDHontResultsOnlyLegal().getResult(party, divisor) != null && district.getDHontResultsOnlyLegal().getResult(party, divisor).tie}
+                ( ${district.getDHontResultsOnlyLegal().getResult(party, divisor)?.order} ?)
+            #{/if}
+        </td>
+        #{/list}
+    </tr>
+#{/list}
+
+    <tr>
+        <td>&{'Result'}</td>
+        #{list items:district.results.parties, as:'party'}
+        <td>
+            ${district.getDHontResultsOnlyLegal().getAssignedSeats(party)}
+            #{if district.getDHontResultsOnlyLegal().getSeatsInDoubt(party) > 0}
+                + ${district.getDHontResultsOnlyLegal().getSeatsInDoubt(party)}?
+            #{/if}
+        </td>
+        #{/list}
+    </tr>
+</table>
+        </div>
+
+#{/if}
+
 </div>
 
 

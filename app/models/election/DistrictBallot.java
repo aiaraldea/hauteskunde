@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 import models.District;
 import models.PartyI;
 import models.ResultProvider;
@@ -30,6 +31,8 @@ public class DistrictBallot extends Model implements ResultProvider {
     public List<DistrictBallotParty> parties;
     public int seats = 1;
     public double thresold = 0;
+    @Transient
+    private Boolean allPartiesLegal;
 
     @Override
     public String toString() {
@@ -73,6 +76,17 @@ public class DistrictBallot extends Model implements ResultProvider {
         }
     }
 
+    public DHontResults getDHontResultsOnlyLegal() {
+        Object cached = Cache.get(getDHontResultCacheKey() + "_legal");
+        if (cached == null) {
+            DHontResults r = new DHontResults(getResults(), seats, true);
+            Cache.set(getDHontResultCacheKey() + "_legal", r);
+            return r;
+        } else {
+            return (DHontResults) cached;
+        }
+    }
+
     private String getDHontResultCacheKey() {
         return "dHontResults_" + toString();
     }
@@ -80,6 +94,20 @@ public class DistrictBallot extends Model implements ResultProvider {
     public void clearCache() {
         Cache.delete(getResultCacheKey());
         Cache.delete(getDHontResultCacheKey());
+        Cache.delete(getDHontResultCacheKey() + "_legal");
+    }
+
+    public boolean isAllPartiesLegal() {
+        if (allPartiesLegal == null) {
+            allPartiesLegal = true;
+            for (DistrictBallotParty districtBallotParty : parties) {
+                if (!districtBallotParty.isLegal()) {
+                    allPartiesLegal = false;
+                    break;
+                }
+            }
+        }
+        return allPartiesLegal;
     }
 
     @Override

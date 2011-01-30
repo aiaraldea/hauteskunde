@@ -13,6 +13,6 @@ districtBallot = District Ballot
 date = Date
 longName = Long Name
 pollingStation = Polling Station
-census = Census
+dhont_table=D'Hont Table
 
 results.title=Election Results

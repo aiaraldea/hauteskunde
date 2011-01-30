@@ -1,5 +1,6 @@
 package controllers.admin;
 
+import controllers.breadcrumb.ResultFormBreadcrumb;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -11,9 +12,7 @@ import models.PartyI;
 import models.election.PollingStationBallot;
 import models.results.PollingStationResult;
 import models.results.ResultEntry;
-import play.cache.Cache;
 import play.mvc.Controller;
-import play.mvc.Scope.Flash;
 
 /**
  *
@@ -27,22 +26,26 @@ public class Results extends Controller {
     }
 
     public static void listDistricts(Long electionId) {
-        List<DistrictBallot> districts = DistrictBallot.find("election.id", electionId).fetch();
-        render(districts);
+        Election election = Election.findById(electionId);
+        List<DistrictBallot> districts = election.getDistrictBallots();
+        ResultFormBreadcrumb breadcrumb = ResultFormBreadcrumb.createBreadcrumb(election);
+        render(districts, breadcrumb);
     }
 
-    public static void listPollingStations(Long districId) {
-        List<PollingStationBallot> pollingStations = PollingStationBallot.find("districtBallot.id", districId).fetch();
-        render(pollingStations);
+    public static void listPollingStations(Long districtId) {
+        DistrictBallot district = DistrictBallot.findById(districtId);
+        List<PollingStationBallot> pollingStations = district.pollingStations;
+        ResultFormBreadcrumb breadcrumb = ResultFormBreadcrumb.createBreadcrumb(district);
+        render(pollingStations, breadcrumb);
     }
 
     public static void resultsSheet(Long pollingStationId) {
         PollingStationBallot pollingStation = PollingStationBallot.findById(pollingStationId);
         Map<Long, ResultEntry> resultMap = createResultMap(pollingStation);
         List<ResultEntry> results = new ArrayList<ResultEntry>(resultMap.values());
+        ResultFormBreadcrumb breadcrumb = ResultFormBreadcrumb.createBreadcrumb(pollingStation);
 
-        Flash.current().put("pollingStationId", pollingStationId);
-        render(results, pollingStation);
+        render(results, pollingStation, breadcrumb);
     }
 
     private static Map<Long, ResultEntry> createResultMap(PollingStationBallot pollingStation) {
@@ -67,8 +70,7 @@ public class Results extends Controller {
         return resultMap;
     }
 
-    public static void save(Integer nullVoteAmount, Integer whiteVoteAmount, List<ResultDTO> result) {
-        Long pollingStationId = Long.parseLong(Flash.current().get("pollingStationId"));
+    public static void save(Long pollingStationId, Integer nullVoteAmount, Integer whiteVoteAmount, List<ResultDTO> result) {
         PollingStationBallot pollingStation = PollingStationBallot.findById(pollingStationId);
         Map<Long, ResultEntry> resultMap = createResultMap(pollingStation);
         pollingStation.result.nullVoteAmount = nullVoteAmount;
@@ -86,6 +88,8 @@ public class Results extends Controller {
         }
 
         pollingStation.districtBallot.clearCache();
+        flash.success("Data saved");
+
         resultsSheet(pollingStationId);
     }
 

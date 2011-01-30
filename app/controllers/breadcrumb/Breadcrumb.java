@@ -7,6 +7,7 @@ import java.util.Map;
 import models.election.DistrictBallot;
 import models.election.Election;
 import models.election.PollingStationBallot;
+import play.i18n.Messages;
 import play.mvc.Router;
 
 /**
@@ -48,7 +49,7 @@ public class Breadcrumb {
     private static Breadcrumb addRoot(Breadcrumb breadcrumb) {
         Map map = new HashMap();
         String url = Router.reverse("results.Results.index", map).url;
-        breadcrumb.addBreadcrumbEntry("Elections", url);
+        breadcrumb.addBreadcrumbEntry(Messages.get("Elections"), url);
         return breadcrumb;
     }
 

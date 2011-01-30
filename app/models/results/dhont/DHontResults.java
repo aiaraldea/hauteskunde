@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import models.PartyI;
+import models.election.DistrictBallotParty;
 import models.results.ResultI;
 
 /**
@@ -26,8 +27,16 @@ public class DHontResults implements Serializable {
     private int seatAmount = 1;
 
     public DHontResults(ResultI result, int seatAmount) {
+        this(result, seatAmount, false);
+    }
+
+    public DHontResults(ResultI result, int seatAmount, boolean onlyLegal) {
         this.seatAmount = seatAmount;
-        for (PartyI partyI : result.getParties()) {
+        List<PartyI> parties = result.getParties();
+        if (onlyLegal) {
+            parties = filterLegalParties(parties);
+        }
+        for (PartyI partyI : parties) {
             assignedSeats.put(partyI, 0);
             seatsInDoubt.put(partyI, 0);
             for (int i = 1; i <= seatAmount; i++) {
@@ -109,5 +118,15 @@ public class DHontResults implements Serializable {
         } else {
             return 0;
         }
+    }
+
+    private List<PartyI> filterLegalParties(List<PartyI> parties) {
+        List<PartyI> legalParties = new ArrayList<PartyI>();
+        for (PartyI party : parties) {
+            if (party instanceof DistrictBallotParty && ((DistrictBallotParty) party).isLegal()) {
+                legalParties.add(party);
+            }
+        }
+        return legalParties;
     }
 }

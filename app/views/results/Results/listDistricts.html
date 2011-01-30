@@ -3,13 +3,14 @@
 <div id="crudIndex">
 	<h2>&{'Districts'}</h2>
 
-Status: ${election.results.status.format('00.00')}
+&{'Status'}: ${election.results.status.format('00.00')}
 
 <!-- the tabs -->
 <ul class="css-tabs">
 	<li><a href="#">&{'Votes'}</a></li>
 	<li><a href="#">&{'Percentage Over Votes'}</a></li>
 	<li><a href="#">&{'Percentage Over Census'}</a></li>
+	<li><a href="#">&{'Seatings'}</a></li>
 </ul>
 
 <!-- tab "panes" -->
@@ -23,10 +24,10 @@ Status: ${election.results.status.format('00.00')}
         #{list items:election.results.parties, as:'party'}
         <th>${party.name}</th>
         #{/list}
-        <th>Whites</th>
-        <th>Nulls</th>
-        <th>Abstentions</th>
-        <th>Census</th>
+        <th>&{'Whites'}</th>
+        <th>&{'Nulls'}</th>
+        <th>&{'Abstentions'}</th>
+        <th>&{'Census'}</th>
         </tr>
     </thead>
 
@@ -65,8 +66,8 @@ Status: ${election.results.status.format('00.00')}
         #{list items:election.results.parties, as:'party'}
         <th>${party.name}</th>
         #{/list}
-        <th>Whites</th>
-        <th>Abstentions</th>
+        <th>&{'Whites'}</th>
+        <th>&{'Abstentions'}</th>
         </tr>
     </thead>
 
@@ -91,9 +92,8 @@ Status: ${election.results.status.format('00.00')}
     </tr>
 </table>
         </div>
-	<div>
 
-
+    <div>
 <table>
     <thead>
         <tr>
@@ -101,10 +101,10 @@ Status: ${election.results.status.format('00.00')}
         #{list items:election.results.parties, as:'party'}
         <th>${party.name}</th>
         #{/list}
-        <th>Whites</th>
-        <th>Nulls</th>
-        <th>Abstentions</th>
-        <th>Census</th>
+        <th>&{'Whites'}</th>
+        <th>&{'Nulls'}</th>
+        <th>&{'Abstentions'}</th>
+        <th>&{'Census'}</th>
         </tr>
     </thead>
 
@@ -133,6 +133,37 @@ Status: ${election.results.status.format('00.00')}
     </tr>
 </table>
         </div>
+
+    <div>
+<table>
+    <thead>
+        <tr>
+            <th></th>
+        #{list items:election.results.parties, as:'party'}
+        <th>${party.name}</th>
+        #{/list}
+        </tr>
+    </thead>
+
+#{list items:election.districtBallots, as:'district'}
+    <tr>
+        <td><a href="@{listPollingStations(district.id)}">${district.district.name}</a></td>
+        #{list items:election.results.parties, as:'party'}
+        <td>${election.getSeating(district, party)}</td>
+        #{/list}
+    </tr>
+#{/list}
+
+    <tr>
+        <td>&{'Total'}</td>
+        #{list items:election.results.parties, as:'party'}
+        <td>${election.getSeating(party)}</td>
+        #{/list}
+    </tr>
+</table>
+        </div>
+
+
 </div>
 
 

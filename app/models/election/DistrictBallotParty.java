@@ -21,6 +21,7 @@ public class DistrictBallotParty extends Model implements PartyI {
     public DistrictBallot districtBallot;
     @OneToMany(mappedBy = "party", cascade = CascadeType.ALL)
     public List<ResultEntry> results;
+    public boolean legal = true;
 
     public void setName(String name) {
         if (mainParty.name.equals(name)) {
@@ -46,5 +47,9 @@ public class DistrictBallotParty extends Model implements PartyI {
     public void _save() {
         districtBallot.clearCache();
         super._save();
+    }
+
+    public boolean isLegal() {
+        return legal;
     }
 }
