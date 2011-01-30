@@ -14,3 +14,5 @@ date = Date
 longName = Long Name
 pollingStation = Polling Station
 census = Census
+
+results.title=Election Results

@@ -24,6 +24,7 @@ public class Breadcrumb {
     public static Breadcrumb createBreadcrumb(Election election) {
         Breadcrumb eb = new Breadcrumb();
         eb = Breadcrumb.addRoot(eb);
+        eb = Breadcrumb.addElection(eb, election);
         return eb;
     }
 
@@ -31,6 +32,7 @@ public class Breadcrumb {
         Breadcrumb eb = new Breadcrumb();
         eb = Breadcrumb.addRoot(eb);
         eb = Breadcrumb.addElection(eb, district.election);
+        eb = Breadcrumb.addDistrict(eb, district);
         return eb;
     }
 
@@ -39,6 +41,7 @@ public class Breadcrumb {
         eb = Breadcrumb.addRoot(eb);
         eb = Breadcrumb.addElection(eb, pollingStation.districtBallot.election);
         eb = Breadcrumb.addDistrict(eb, pollingStation.districtBallot);
+        eb = Breadcrumb.addPollingStation(eb, pollingStation);
         return eb;
     }
 
@@ -62,6 +65,14 @@ public class Breadcrumb {
         map.put("districtId", districtBallot.id);
         String url = Router.reverse("results.Results.listPollingStations", map).url;
         breadcrumb.addBreadcrumbEntry(districtBallot.district.name, url);
+        return breadcrumb;
+    }
+
+    private static Breadcrumb addPollingStation(Breadcrumb breadcrumb, PollingStationBallot pollingStation) {
+        Map map = new HashMap();
+        map.put("pollingStationId", pollingStation.id);
+        String url = Router.reverse("results.Results.resultsSheet", map).url;
+        breadcrumb.addBreadcrumbEntry(pollingStation.toString(), url);
         return breadcrumb;
     }
 
