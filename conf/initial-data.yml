@@ -1,3 +1,8 @@
+admin.User(admin):
+    email: admin@example.com
+    password: admin
+    fullname: Mega Admin
+
 District(aiara):
   name: Aiara
 

@@ -18,6 +18,16 @@ public class Municipality extends Model {
     @OneToMany(mappedBy = "municipality")
     public List<PollingStation> pollingStations;
 
+    public Municipality(String state, String code) {
+        this(state, code, null);
+    }
+
+    public Municipality(String state, String code, String name) {
+        this.state = state;
+        this.code = code;
+        this.name = name;
+    }
+
     @Override
     public String toString() {
         return code + " - " + name;

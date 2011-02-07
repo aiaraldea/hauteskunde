@@ -25,6 +25,18 @@ public class PollingStation extends Model {
     @Required
     public String name;
 
+    public PollingStation(Municipality municipality, String psDistrict, String section, String table) {
+        this(municipality, psDistrict, section, table, StringUtils.EMPTY);
+    }
+
+    public PollingStation(Municipality municipality, String psDistrict, String section, String table, String name) {
+        this.municipality = municipality;
+        this.psDistrict = psDistrict;
+        this.section = section;
+        this.table = table;
+        this.name = name;
+    }
+
     @Override
     public String toString() {
         if (StringUtils.isEmpty(name)) {

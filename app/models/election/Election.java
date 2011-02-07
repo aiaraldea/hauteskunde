@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
@@ -23,6 +24,7 @@ import play.db.jpa.Model;
 public class Election extends Model implements ResultProvider {
 
     @Required
+    @Column(unique = true)
     public String name;
     @Required
     public Date date;
@@ -32,6 +34,15 @@ public class Election extends Model implements ResultProvider {
     Map<DistrictBallot, Map<PartyI, Integer>> seatings;
     @Transient
     Map<PartyI, Integer> seatingsTotal;
+
+    public Election(String name) {
+        this(name, null);
+    }
+
+    public Election(String name, Date date) {
+        this.name = name;
+        this.date = date;
+    }
 
     @Override
     public String toString() {
@@ -58,11 +69,11 @@ public class Election extends Model implements ResultProvider {
     }
 
     private void createSeatings() {
-    seatings = new HashMap<DistrictBallot, Map<PartyI, Integer>>();
-    seatingsTotal = new HashMap<PartyI, Integer>();
+        seatings = new HashMap<DistrictBallot, Map<PartyI, Integer>>();
+        seatingsTotal = new HashMap<PartyI, Integer>();
         for (DistrictBallot districtBallot : districtBallots) {
             DHontResults r = districtBallot.getDHontResults();
-            for (DistrictBallotParty districtBallotParty : districtBallot.parties) {
+            for (DistrictBallotParty districtBallotParty : districtBallot.getParties()) {
                 int assignedSeats = r.getAssignedSeats(districtBallotParty);
                 if (!seatings.containsKey(districtBallot)) {
                     seatings.put(districtBallot, new HashMap<PartyI, Integer>());

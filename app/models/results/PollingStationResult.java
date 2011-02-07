@@ -28,9 +28,9 @@ public class PollingStationResult extends Model implements ResultI {
     public Integer nullVoteAmount = null;
     public Integer whiteVoteAmount = null;
     @OneToMany(mappedBy = "result", cascade = CascadeType.ALL)
-    public List<ResultEntry> resultEntries;
+    private List<ResultEntry> resultEntries;
     @Transient
-    private Map<PartyI, Integer> resultEntriesMap;
+    private Map<PartyI, ResultEntry> resultEntriesMap;
 
     private PollingStationResult(Builder b) {
         this.pollingStationBallot = b.pollingStationBallot;
@@ -108,9 +108,9 @@ public class PollingStationResult extends Model implements ResultI {
             return null;
         }
         int votes = 0;
-        for (Integer amount : resultEntriesMap.values()) {
-            if (amount != null) {
-                votes += amount;
+        for (ResultEntry entry : resultEntriesMap.values()) {
+            if (entry.votes != null) {
+                votes += entry.votes;
             }
         }
         votes += nullVoteAmount + whiteVoteAmount;
@@ -120,8 +120,8 @@ public class PollingStationResult extends Model implements ResultI {
     public Double getStatus() {
         float status = 100;
         initResultEntriesMap();
-        for (Integer voteAmount : resultEntriesMap.values()) {
-            if (voteAmount == null) {
+        for (ResultEntry entry : resultEntriesMap.values()) {
+            if (entry.votes == null) {
                 status = 0;
             }
         }
@@ -138,12 +138,12 @@ public class PollingStationResult extends Model implements ResultI {
         }
         Map<Integer, List<PartyI>> m = new TreeMap<Integer, List<PartyI>>();
 
-        for (Map.Entry<PartyI, Integer> entry : resultEntriesMap.entrySet()) {
+        for (Map.Entry<PartyI, ResultEntry> entry : resultEntriesMap.entrySet()) {
             if (entry.getValue() != null) {
-                if (!m.containsKey(entry.getValue())) {
-                    m.put(entry.getValue(), new ArrayList<PartyI>());
+                if (!m.containsKey(entry.getValue().votes)) {
+                    m.put(entry.getValue().votes, new ArrayList<PartyI>());
                 }
-                m.get(entry.getValue()).add(entry.getKey());
+                m.get(entry.getValue().votes).add(entry.getKey());
             }
         }
 
@@ -159,17 +159,31 @@ public class PollingStationResult extends Model implements ResultI {
 
     public Integer getResult(PartyI party) {
         initResultEntriesMap();
-        return resultEntriesMap.get(party);
+        if(resultEntriesMap.get(party) == null) {
+            return null;
+        }
+        return resultEntriesMap.get(party).votes;
     }
 
     private void initResultEntriesMap() {
         if (resultEntriesMap == null) {
-            resultEntriesMap = new HashMap<PartyI, Integer>();
+            resultEntriesMap = new HashMap<PartyI, ResultEntry>();
             if (resultEntries != null) {
                 for (ResultEntry resultEntry : resultEntries) {
-                    resultEntriesMap.put(resultEntry.party, resultEntry.votes);
+                    resultEntriesMap.put(resultEntry.party, resultEntry);
                 }
             }
+        }
+    }
+
+    public void addResult(DistrictBallotParty party, int voteAmount) {
+        initResultEntriesMap();
+        if (resultEntriesMap.containsKey(party)) {
+            resultEntriesMap.get(party).votes = voteAmount;
+        } else {
+            ResultEntry re = new ResultEntry(party, this, voteAmount);
+            resultEntries.add(re);
+            resultEntriesMap.put(party, re);
         }
     }
 

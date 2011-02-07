@@ -13,9 +13,10 @@ districtBallot = District Ballot
 date = Data
 longName = Izen luzea
 pollingStation = Polling Station
-census = Census
+Census=Errolda
 
 Elections=Hauteskundeak
+votes=Botoak
 Votes=Botoak
 Status=Egoera
 Total=Guztira
@@ -25,10 +26,20 @@ Abstentions=Abstentzioak
 Result=Emaitza
 Results=Emaitzak
 dhont_table=D'Hont Taula
+Seatings=Eserlekuak
+percentage_over_votes=Botoen ehunekoa
+percentage_over_census=Erroldaren ehunekoa
 
 Add=Gehitu
 results.title=Hauteskundeen emaitzak
 
+User=Erabiltzaile
+Users=Erabiltzaileak
+
+email=E-posta
+password=Pasahitza
+fullname=Izena
+isAdmin = Kudeatzailea da?
 
 # Default CRUD messages
 # ~~~~~~

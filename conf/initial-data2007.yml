@@ -1,5 +1,5 @@
 election.Election(udal-hauteskundeak-2007):
-  name: Udal hauteskundeak 2007
+  name: "Udal hauteskundeak 2007"
   date: 2007-05-27
 
 election.DistrictBallot(aiara2007):
@@ -46,7 +46,6 @@ election.DistrictBallot(urduña2007):
   election: udal-hauteskundeak-2007
   district: urduña
   seats: 11
-
 
 #Parties
 
@@ -326,13 +325,6 @@ election.DistrictBallotParty(aralar-laudio-2007):
   mainParty: aralar
   districtBallot: laudio2007
   importName: "EB / ARALAR"
-
-election.DistrictBallotParty(ezker-abertzalea-laudio-2007):
-  name: "EAE-ANV"
-  mainParty: ezker-abertzalea
-  districtBallot: laudio2007
-  importName: "EAE / ANV"
-  legal: false
 
 #Okondo
 election.DistrictBallotParty(eaj-okondo-2007):

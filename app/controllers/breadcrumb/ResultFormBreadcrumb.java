@@ -1,8 +1,6 @@
 package controllers.breadcrumb;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import models.election.DistrictBallot;
 import models.election.Election;
@@ -13,13 +11,7 @@ import play.mvc.Router;
  *
  * @author inaki
  */
-public class ResultFormBreadcrumb {
-
-    private List<BreadcrumbEntry> breadcrumbEntries = new ArrayList<BreadcrumbEntry>();
-
-    public void addBreadcrumbEntry(String text, String url) {
-        breadcrumbEntries.add(new BreadcrumbEntry(text, url));
-    }
+public class ResultFormBreadcrumb extends Breadcrumb {
 
     public static ResultFormBreadcrumb createBreadcrumb(Election election) {
         ResultFormBreadcrumb eb = new ResultFormBreadcrumb();
@@ -74,9 +66,5 @@ public class ResultFormBreadcrumb {
         String url = Router.reverse("admin.Results.resultsSheet", map).url;
         breadcrumb.addBreadcrumbEntry(pollingStation.toString(), url);
         return breadcrumb;
-    }
-
-    public List<BreadcrumbEntry> getEntries() {
-        return breadcrumbEntries;
     }
 }

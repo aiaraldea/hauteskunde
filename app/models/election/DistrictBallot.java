@@ -1,5 +1,6 @@
 package models.election;
 
+import java.util.ArrayList;
 import models.results.ResultI;
 import models.results.DistrictResult;
 import java.util.List;
@@ -28,15 +29,24 @@ public class DistrictBallot extends Model implements ResultProvider {
     @OneToMany(mappedBy = "districtBallot")
     public List<PollingStationBallot> pollingStations;
     @OneToMany(mappedBy = "districtBallot")
-    public List<DistrictBallotParty> parties;
+    private List<DistrictBallotParty> parties = new ArrayList<DistrictBallotParty>();
     public int seats = 1;
     public double thresold = 0;
     @Transient
     private Boolean allPartiesLegal;
 
+    public DistrictBallot(Election election, District district) {
+        this.election = election;
+        this.district = district;
+    }
+
     @Override
     public String toString() {
         return election + " - " + district;
+    }
+
+    public List<DistrictBallotParty> getParties() {
+        return parties;
     }
 
     public ResultI getResults() {
@@ -112,7 +122,7 @@ public class DistrictBallot extends Model implements ResultProvider {
 
     @Override
     public void _save() {
-        clearCache();
         super._save();
+        clearCache();
     }
 }

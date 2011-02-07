@@ -6,7 +6,12 @@ import java.io.StringReader;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import models.District;
+import models.Municipality;
+import models.PollingStation;
+import models.election.DistrictBallot;
 import models.election.DistrictBallotParty;
+import models.election.Election;
 import models.election.PollingStationBallot;
 import models.results.PollingStationResult;
 import org.apache.commons.lang.StringUtils;
@@ -36,7 +41,7 @@ public class InitialDataImporter {
                 + "48,075,\"OROZKO\",1,1,\"A\",749,525,92,433,10,423,224,302,38,49,,10,24,\n"
                 + "48,075,\"OROZKO\",1,1,\"B\",816,616,94,522,15,507,200,347,46,58,,18,38,\n"
                 + "48,075,\"OROZKO\",1,1,\"C\",338,222,44,178,0,178,116,138,7,24,,2,7,";
-        readData(dataBizkaia);
+//        readData(dataBizkaia);
         String dataAraba = ""
                 + "\"Provincia\",\"Cod.Municipio\",\"AMBITO\",\"Distrito\",\"Sección\",\"Mesa\",\"Censo\",\"Votantes\",\"Nulos\",\"Válidos\",\"Blancos\",\"Votos Cand.\",\"Abstenciones\",\"EAJ-PNV\",\"PP\",\"EA\",\"EB\",\"EAE / ANV\",\"PSE-EE/PSOE\",\"ARALAR\",\"EB / ARALAR\"\n"
                 + "01,002,\"AMURRIO\",1,1,\"A\",755,480,2,478,7,471,275,101,83,112,14,85,51,25,\n"
@@ -82,19 +87,22 @@ public class InitialDataImporter {
                 + "01,036,\"LAUDIO / LLODIO\",1,13,\"A\",542,328,2,326,6,320,214,132,30,12,,77,48,,21\n"
                 + "01,036,\"LAUDIO / LLODIO\",1,13,\"B\",519,291,5,286,5,281,228,126,29,10,,57,44,,15\n"
                 + "01,042,\"OKONDO\",1,1,\"U\",893,773,101,672,11,661,120,274,15,365,,,7,,";
-        readData(dataAraba);
+//        readData(dataAraba);
     }
 
-    private static void readData(String data) {
+    public static void readData(String data) {
         Reader r = new StringReader(data);
 
-        CsvMapReader mapReader = new CsvMapReader(r, CsvPreference.EXCEL_PREFERENCE);
+        CsvMapReader mapReader = new CsvMapReader(r, CsvPreference.STANDARD_PREFERENCE);
 
         String[] headers;
         try {
             headers = mapReader.getCSVHeader(true);
             Map<String, String> result;
+            String eleccion;
+            String institucion;
             String codMunicipio;
+            String nomMunicipio;
             String provincia;
             String distrito;
             String seccion;
@@ -103,28 +111,40 @@ public class InitialDataImporter {
             int nulos;
             int blancos;
             PollingStationBallot pollingStationBallot;
+            PollingStationResult psr;
             PollingStationResult.Builder b;
             int amount;
             String amountString;
             result = mapReader.read(headers);
             do {
-                provincia = result.get("Provincia");
-                codMunicipio = result.get("Cod.Municipio");
-                distrito = result.get("Distrito");
-                seccion = result.get("Sección");
-                mesa = result.get("Mesa");
-                censo = Integer.valueOf(result.get("Censo"));
-                nulos = Integer.valueOf(result.get("Nulos"));
-                blancos = Integer.valueOf(result.get("Blancos"));
-                pollingStationBallot = PollingStationBallot.findPollingStation(provincia, codMunicipio, distrito, seccion, mesa);
-                if (pollingStationBallot != null) {
-                    pollingStationBallot.census = censo;
-                    pollingStationBallot.save();
+                eleccion = result.get("Elección").trim();
+                institucion = result.get("Institucion").trim();
+                provincia = result.get("Provincia").trim();
+                codMunicipio = result.get("Cod.Municipio").trim();
+                nomMunicipio = result.get("AMBITO").trim();
+                distrito = result.get("Distrito").trim();
+                seccion = result.get("Sección").trim();
+                mesa = result.get("Mesa").trim();
+                censo = Integer.valueOf(result.get("Censo").trim());
+                nulos = Integer.valueOf(result.get("Nulos").trim());
+                blancos = Integer.valueOf(result.get("Blancos").trim());
+                
+                Election election = loadOrCreateElection(eleccion);
+                District district = loadOrCreateDistrict(institucion);
+                DistrictBallot districtBallot = loadOrCreateDistrictBallot(election, district);
+                Municipality municipality = loadOrCreateMunicipality(provincia, codMunicipio, nomMunicipio);
+                PollingStation pollingStation = loadOrCreatePollingStation(provincia, municipality, distrito, seccion, mesa);
+                pollingStationBallot = loadOrCreatePollingStationBallot(districtBallot, pollingStation, censo);
+
+                pollingStationBallot.census = censo;
+                pollingStationBallot.save();
+                psr = pollingStationBallot.result;
+                if (psr == null) {
                     b =
                             new PollingStationResult.Builder().pollingStationBallot(pollingStationBallot).
                             nullVoteAmount(nulos).
                             whiteVoteAmount(blancos);
-                    for (DistrictBallotParty districtBallotParty : pollingStationBallot.districtBallot.parties) {
+                    for (DistrictBallotParty districtBallotParty : pollingStationBallot.districtBallot.getParties()) {
                         if (StringUtils.isNotEmpty(districtBallotParty.importName)) {
                             amountString = result.get(districtBallotParty.importName);
                             if (StringUtils.isNotEmpty(amountString)) {
@@ -136,7 +156,22 @@ public class InitialDataImporter {
                         }
                     }
 
-                    b.build().save();
+                    psr = b.build();
+                    psr.save();
+                } else {
+                    psr.nullVoteAmount = nulos;
+                    psr.whiteVoteAmount = blancos;
+                    for (DistrictBallotParty districtBallotParty : pollingStationBallot.districtBallot.getParties()) {
+                        if (StringUtils.isNotEmpty(districtBallotParty.importName)) {
+                            amountString = result.get(districtBallotParty.importName);
+                            if (StringUtils.isNotEmpty(amountString)) {
+                                amount = Integer.valueOf(amountString);
+                            } else {
+                                amount = 0;
+                            }
+                            psr.addResult(districtBallotParty, amount);
+                        }
+                    }
                 }
                 result = mapReader.read(headers);
             } while (result != null);
@@ -144,5 +179,72 @@ public class InitialDataImporter {
         } catch (IOException ex) {
             Logger.getLogger(InitialDataImporter.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    private static Election loadOrCreateElection(String eleccion) {
+        Election election = Election.find("name", eleccion).first();
+        if (election == null) {
+            election = new Election(eleccion);
+            election.save();
+        }
+        return election;
+    }
+
+    private static District loadOrCreateDistrict(String name) {
+        District district = District.find("name", name).first();
+        if (district == null) {
+            district = new District(name);
+            district.save();
+        }
+        return district;
+    }
+
+    private static DistrictBallot loadOrCreateDistrictBallot(Election election, District district) {
+        DistrictBallot districtBallot = DistrictBallot.find(
+                "election.id = ? and district.id = ?",
+                election.id, district.id).first();
+        if (districtBallot == null) {
+            districtBallot = new DistrictBallot(election, district);
+            districtBallot.save();
+        }
+        return districtBallot;
+    }
+
+    private static Municipality loadOrCreateMunicipality(String stateCode, String code, String name) {
+        Municipality municipality = Municipality.find("byStateAndCode", stateCode, code).first();
+        if (municipality == null) {
+            municipality = new Municipality(stateCode, code, name);
+            municipality.save();
+        }
+        return municipality;
+    }
+
+    private static PollingStation loadOrCreatePollingStation(String provincia, Municipality municipality, String distrito, String seccion, String mesa) {
+        PollingStation pollingStation = PollingStation.find(
+                "municipality.state = ? "
+                + "and municipality = ? "
+                + "and psDistrict = ? "
+                + "and section = ? "
+                + "and table = ?",
+                provincia,
+                municipality,
+                distrito,
+                seccion,
+                mesa).first();
+        if (pollingStation == null) {
+            pollingStation = new PollingStation(municipality, distrito, seccion, mesa);
+            pollingStation.save();
+        }
+        return pollingStation;
+    }
+
+    private static PollingStationBallot loadOrCreatePollingStationBallot(DistrictBallot districtBallot, PollingStation pollingStation, int census) {
+        PollingStationBallot pollingStationBallot =
+                PollingStationBallot.find("districtBallot.id = ? and pollingStation.id = ?", districtBallot.id, pollingStation.id).first();
+        if (pollingStationBallot == null) {
+            pollingStationBallot = new PollingStationBallot(districtBallot, pollingStation, census);
+            pollingStationBallot.save();
+        }
+        return pollingStationBallot;
     }
 }

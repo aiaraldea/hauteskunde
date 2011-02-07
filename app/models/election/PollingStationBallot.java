@@ -24,6 +24,12 @@ public class PollingStationBallot extends Model implements ResultProvider {
     @OneToOne(mappedBy = "pollingStationBallot")
     public PollingStationResult result;
 
+    public PollingStationBallot(DistrictBallot districtBallot, PollingStation pollingStation, int census) {
+        this.districtBallot = districtBallot;
+        this.pollingStation = pollingStation;
+        this.census = census;
+    }
+
     @Override
     public String toString() {
         return pollingStation + " - " + districtBallot.election.name;
