@@ -2,9 +2,29 @@
 
 <div id="crudIndex">
 
-	<h2>${district.district.name}</h2>
+        <div class="container_12 clearfix">
+            <div class="grid_6">
+                <h2>${district.district.name}</h2>
+                <span class="result_status">&{'Status'}: % ${district.results.status.format('00.00')}</span>
 
-&{'Status'}: % ${district.results.status.format('00.00')}
+        <ul>
+        #{list items:district.results.parties, as:'party'}
+        <li>
+            ${party.name}:
+            ${district.getDHontResultsOnlyLegal().getAssignedSeats(party)}
+            #{if district.getDHontResultsOnlyLegal().getSeatsInDoubt(party) > 0}
+                + ${district.getDHontResultsOnlyLegal().getSeatsInDoubt(party)}?
+            #{/if}
+        </li>
+        #{/list}
+        </ul>
+            </div>
+            <div class="grid_6">
+                #{pieChart result:district.results /}
+            </div>
+        </div>
+
+
 <!-- the tabs -->
 <ul class="css-tabs">
 	<li><a href="#">&{'Votes'}</a></li>

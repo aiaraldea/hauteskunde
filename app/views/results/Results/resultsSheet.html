@@ -85,36 +85,11 @@
         </div>
         <div class="grid_5">
 
-    <div id="chart_div"></div>
+    #{pieChart result:result /}
 
         </div>
 
-         <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript">
-      google.load("visualization", "1", {packages:["corechart"]});
-      google.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Alderdia');
-        data.addColumn('number', 'Botoak');
-        data.addRows(${result.parties.size + 3});
-        
-        #{list items:result.parties, as:'party'}
-        data.setValue(${party_index - 1}, 0, '&{party.name}');
-        data.setValue(${party_index - 1}, 1, ${result.getResult(party)});
-        #{/list}
-
-        data.setValue(${result.parties.size}, 0, '&{'Nulls'}');
-        data.setValue(${result.parties.size}, 1, ${result.nullVoteAmount});
-        data.setValue(${result.parties.size +1}, 0, '&{'Whites'}');
-        data.setValue(${result.parties.size +1}, 1, ${result.whiteVoteAmount});
-        data.setValue(${result.parties.size +2}, 0, '&{'Abstentions'}');
-        data.setValue(${result.parties.size +2}, 1, ${result.abstentions});
-
-        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-        chart.draw(data, {width: 380, height: 300});
-      }
-    </script>
+   
 
     </div>
 

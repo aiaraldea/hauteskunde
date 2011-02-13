@@ -1,3 +1,7 @@
 #crudBreadcrumb li {
     margin-left: 5px;;
 }
+
+.result_status {
+    font-size: 160%;
+}
