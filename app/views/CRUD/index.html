@@ -2,9 +2,6 @@
 
 <div id="crudIndex">
 
-
-
-
 	<h2>&{'crud.index.title'}</h2>
 
 	<table>
@@ -27,7 +24,15 @@
 		#{/crud.types}
 			<tr>
 				<td>
-					<a href="/admin/results">&{'Results'}</a>
+					<a href="@{admin.Results.listElections}">&{'Results'}</a>
+				</td>
+				<td class="crudNew" >
+
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<a href="@{admin.ResultImporter.index}">&{'Import'}</a>
 				</td>
 				<td class="crudNew" >
 

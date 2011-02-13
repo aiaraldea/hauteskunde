@@ -31,3 +31,18 @@ Party(ure-ebb):
   name: URE-EBB
   longName: URE-EBB
 
+Party(ua):
+  name: UA
+  longName: Unidad Alavesa
+
+Party(eaj-ea):
+  name: EAJ-EA
+  longName: Euzko Alderdi Jeltzalea / Eusko Alkartasuna
+
+Party(ind1):
+  name: Okondoko independienteak 1
+  longName: Okondoko independienteak 1
+
+Party(ind2):
+  name: Okondoko independienteak 2
+  longName: Okondoko independienteak 2

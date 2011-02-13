@@ -78,9 +78,9 @@
     <tr>
         <td><a href="@{resultsSheet(pollingStation.id)}">${pollingStation.pollingStation}</a></td>
         #{list items:district.results.parties, as:'party'}
-        <td>${pollingStation.results.getPercentageOverVotes(party).format('0.00')}</td>
+        <td>${pollingStation.results.getPercentageOverVotes(party)?.format('0.00')}</td>
         #{/list}
-        <td>${pollingStation.results.whiteVotePercentageOverVotes.format('0.00')}</td>
+        <td>${pollingStation.results.whiteVotePercentageOverVotes?.format('0.00')}</td>
         <td>${pollingStation.results.census}</td>
     </tr>
 #{/list}
@@ -88,9 +88,9 @@
     <tr>
         <td>&{'Total'}</td>
         #{list items:district.results.parties, as:'party'}
-        <td>${district.results.getPercentageOverVotes(party).format('0.00')}</td>
+        <td>${district.results.getPercentageOverVotes(party)?.format('0.00')}</td>
         #{/list}
-        <td>${district.results.whiteVotePercentageOverVotes.format('0.00')}</td>
+        <td>${district.results.whiteVotePercentageOverVotes?.format('0.00')}</td>
         <td>${district.results.census}</td>
     </tr>
 </table>
@@ -117,11 +117,11 @@
     <tr>
         <td><a href="@{resultsSheet(pollingStation.id)}">${pollingStation.pollingStation}</a></td>
         #{list items:district.results.parties, as:'party'}
-        <td>${pollingStation.results.getPercentageOverCensus(party).format('0.00')}</td>
+        <td>${pollingStation.results.getPercentageOverCensus(party)?.format('0.00')}</td>
         #{/list}
-        <td>${pollingStation.results.whiteVotePercentageOverCensus.format('0.00')}</td>
-        <td>${pollingStation.results.nullVotePercentageOverCensus.format('0.00')}</td>
-        <td>${pollingStation.results.abstentionsPercentage.format('0.00')}</td>
+        <td>${pollingStation.results.whiteVotePercentageOverCensus?.format('0.00')}</td>
+        <td>${pollingStation.results.nullVotePercentageOverCensus?.format('0.00')}</td>
+        <td>${pollingStation.results.abstentionsPercentage?.format('0.00')}</td>
         <td>${pollingStation.results.census}</td>
     </tr>
 #{/list}
@@ -129,11 +129,11 @@
     <tr>
         <td>&{'Total'}</td>
         #{list items:district.results.parties, as:'party'}
-        <td>${district.results.getPercentageOverCensus(party).format('0.00')}</td>
+        <td>${district.results.getPercentageOverCensus(party)?.format('0.00')}</td>
         #{/list}
-        <td>${district.results.whiteVotePercentageOverCensus.format('0.00')}</td>
-        <td>${district.results.nullVotePercentageOverCensus.format('0.00')}</td>
-        <td>${district.results.abstentionsPercentage.format('0.00')}</td>
+        <td>${district.results.whiteVotePercentageOverCensus?.format('0.00')}</td>
+        <td>${district.results.nullVotePercentageOverCensus?.format('0.00')}</td>
+        <td>${district.results.abstentionsPercentage?.format('0.00')}</td>
         <td>${district.results.census}</td>
     </tr>
 </table>
@@ -183,8 +183,6 @@
     </tr>
 </table>
         </div>
-
-
 
 #{if !district.allPartiesLegal }
 	<div>

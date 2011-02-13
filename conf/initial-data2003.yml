@@ -57,10 +57,10 @@ election.DistrictBallotParty(eaj-arakaldo-2003):
   importName: "EAJ-PNV"
 
 election.DistrictBallotParty(ezker-abertzalea-arakaldo-2003):
-  name: "EAE-ANV"
+  name: "Arakaldoko plataforma"
   mainParty: ezker-abertzalea
   districtBallot: arakaldo2003
-  importName: "EAE / ANV"
+  importName: "Arakaldako plataforma"
 
 election.DistrictBallotParty(pp-arakaldo-2003):
   name:
@@ -88,18 +88,18 @@ election.DistrictBallotParty(pse-arrankudiaga-2003):
   importName: "PSE-EE/PSOE"
 
 election.DistrictBallotParty(ezker-abertzalea-arrankudiaga-2003):
-  name:
+  name: Arrankudiagako plataforma
   mainParty: ezker-abertzalea
   districtBallot: arrankudiaga2003
-  importName: "EAE / ANV"
+  importName: "Arrankudiagako plataforma"
   legal: false
 
 # Urduña
 election.DistrictBallotParty(eaj-urduna-2003):
   name:
-  mainParty: eaj
+  mainParty: eaj-ea
   districtBallot: urduña2003
-  importName: "EAJ-PNV"
+  importName: "EAJ-PNV / EA"
 
 election.DistrictBallotParty(pp-urduna-2003):
   name:
@@ -114,28 +114,22 @@ election.DistrictBallotParty(pse-urduna-2003):
   importName: "PSE-EE/PSOE"
 
 election.DistrictBallotParty(aralar-urduna-2003):
-  name: EB / Aralar
-  mainParty: aralar
-  districtBallot: urduña2003
-  importName: "EB / ARALAR"
-
-election.DistrictBallotParty(ea-urduna-2003):
   name:
-  mainParty: ea
+  mainParty: eb
   districtBallot: urduña2003
-  importName: "EA"
-
+  importName: "EB"
+  
 election.DistrictBallotParty(ure-ebb-urduna-2003):
   name:
   mainParty: ure-ebb
   districtBallot: urduña2003
-  importName: "URE-EEB"
+  importName: "IND.ORDUÑA 03"
 
 election.DistrictBallotParty(ezker-abertzalea-urduna-2003):
-  name: "EAE-ANV"
+  name: "Urduñako plataforma"
   mainParty: ezker-abertzalea
   districtBallot: urduña2003
-  importName: "EAE / ANV"
+  importName: "Urduñako plataforma"
   legal: false
 
 # Orozko
@@ -152,10 +146,10 @@ election.DistrictBallotParty(ea-orozko-2003):
   importName: "EA"
 
 election.DistrictBallotParty(ezker-abertzalea-orozko-2003):
-  name: "EAE-ANV"
+  name: "Orozkoko plataforma"
   mainParty: ezker-abertzalea
   districtBallot: orozko2003
-  importName: "EAE / ANV"
+  importName: "Orozkoko plataforma"
   legal: false
 
 election.DistrictBallotParty(pse-orozko-2003):
@@ -170,24 +164,12 @@ election.DistrictBallotParty(pp-orozko-2003):
   districtBallot: orozko2003
   importName: "PP"
 
-election.DistrictBallotParty(aralar-orozko-2003):
-  name: "EB/ARALAR"
-  mainParty: aralar
-  districtBallot: orozko2003
-  importName: "EB / ARALAR"
-
 # Aiara
 election.DistrictBallotParty(eaj-aiara-2003):
   name:
-  mainParty: eaj
+  mainParty: eaj-ea
   districtBallot: aiara2003
-  importName: "EAJ-PNV"
-
-election.DistrictBallotParty(ea-aiara-2003):
-  name:
-  mainParty: ea
-  districtBallot: aiara2003
-  importName: "EA"
+  importName: "EAJ-PNV / EA"
 
 election.DistrictBallotParty(pp-aiara-2003):
   name:
@@ -201,25 +183,31 @@ election.DistrictBallotParty(pse-aiara-2003):
   districtBallot: aiara2003
   importName: "PSE-EE/PSOE"
 
+election.DistrictBallotParty(ua-aiara-2003):
+  name:
+  mainParty: ua
+  districtBallot: aiara2003
+  importName: "U.AL."
+
 election.DistrictBallotParty(ezker-abertzalea-aiara-2003):
-  name: "EAE-ANV"
+  name: "Aiarako plataforma"
   mainParty: ezker-abertzalea
   districtBallot: aiara2003
-  importName: "EAE / ANV"
+  importName: "Aiarako plataforma"
   legal: false
 
 # Artziniega
-election.DistrictBallotParty(eaj-artziniega-2003):
+election.DistrictBallotParty(eaj-ea-artziniega-2003):
   name:
-  mainParty: eaj
+  mainParty: eaj-ea
   districtBallot: artziniega2003
-  importName: "EAJ-PNV"
+  importName: "EAJ-PNV / EA"
 
-election.DistrictBallotParty(ea-artziniega-2003):
+election.DistrictBallotParty(ua-artziniega-2003):
   name:
-  mainParty: ea
+  mainParty: ua
   districtBallot: artziniega2003
-  importName: "EA"
+  importName: "U.AL."
 
 election.DistrictBallotParty(pp-artziniega-2003):
   name:
@@ -240,24 +228,18 @@ election.DistrictBallotParty(aralar-artziniega-2003):
   importName: "ARALAR"
 
 election.DistrictBallotParty(ezker-abertzalea-artziniega-2003):
-  name: "EAE-ANV"
+  name: "Artziniegako plataforma"
   mainParty: ezker-abertzalea
   districtBallot: artziniega2003
-  importName: "EAE / ANV"
+  importName: "Artziniegako plataforma"
   legal: false
 
 # Amurrio
-election.DistrictBallotParty(eaj-amurrio-2003):
+election.DistrictBallotParty(eaj-ea-amurrio-2003):
   name:
-  mainParty: eaj
+  mainParty: eaj-ea
   districtBallot: amurrio2003
-  importName: "EAJ-PNV"
-
-election.DistrictBallotParty(ea-amurrio-2003):
-  name:
-  mainParty: ea
-  districtBallot: amurrio2003
-  importName: "EA"
+  importName: "EAJ-PNV / EA"
 
 election.DistrictBallotParty(ezker-abertzalea-amurrio-2003):
   name: "Laria Plataforma"
@@ -283,6 +265,12 @@ election.DistrictBallotParty(aralar-amurrio-2003):
   districtBallot: amurrio2003
   importName: "ARALAR"
 
+election.DistrictBallotParty(ua-amurrio-2003):
+  name:
+  mainParty: ua
+  districtBallot: amurrio2003
+  importName: "U.AL."
+
 election.DistrictBallotParty(eb-amurrio-2003):
   name:
   mainParty: eb
@@ -290,23 +278,24 @@ election.DistrictBallotParty(eb-amurrio-2003):
   importName: "EB"
 
 #Laudio
-election.DistrictBallotParty(eaj-laudio-2003):
+election.DistrictBallotParty(eaj-ea-laudio-2003):
   name:
-  mainParty: eaj
+  mainParty: eaj-ea
   districtBallot: laudio2003
-  importName: "EAJ-PNV"
+  importName: "EAJ-PNV / EA"
 
-election.DistrictBallotParty(ea-laudio-2003):
+election.DistrictBallotParty(ua-laudio-2003):
   name:
-  mainParty: ea
+  mainParty: ua
   districtBallot: laudio2003
-  importName: "EA"
+  importName: "U.AL."
 
 election.DistrictBallotParty(ezker-abertzalea-laudio-2003):
-  name: "EAE-ANV"
+  name: "Laudioko plataforma"
   mainParty: ezker-abertzalea
   districtBallot: laudio2003
-  importName: "EAE / ANV"
+  importName: "Laudioko plataforma"
+  legal: false
 
 election.DistrictBallotParty(pse-laudio-2003):
   name:
@@ -320,31 +309,30 @@ election.DistrictBallotParty(pp-laudio-2003):
   districtBallot: laudio2003
   importName: "PP"
 
-election.DistrictBallotParty(aralar-laudio-2003):
+election.DistrictBallotParty(eb-laudio-2003):
   name:
-  mainParty: aralar
+  mainParty: eb
   districtBallot: laudio2003
-  importName: "EB / ARALAR"
-
-election.DistrictBallotParty(ezker-abertzalea-laudio-2003):
-  name: "EAE-ANV"
-  mainParty: ezker-abertzalea
-  districtBallot: laudio2003
-  importName: "EAE / ANV"
-  legal: false
+  importName: "EB"
 
 #Okondo
-election.DistrictBallotParty(eaj-okondo-2003):
+election.DistrictBallotParty(eaj-ea-okondo-2003):
   name:
-  mainParty: eaj
+  mainParty: eaj-ea
   districtBallot: okondo2003
-  importName: "EAJ-PNV"
+  importName: "EAJ-PNV / EA"
 
-election.DistrictBallotParty(ea-okondo-2003):
+election.DistrictBallotParty(ind1-okondo-2003):
   name:
-  mainParty: ea
+  mainParty: ind1
   districtBallot: okondo2003
-  importName: "EA"
+  importName: "IND1.OKONDO 03"
+
+election.DistrictBallotParty(ind2-okondo-2003):
+  name:
+  mainParty: ind2
+  districtBallot: okondo2003
+  importName: "IND2.OKONDO 03"
 
 election.DistrictBallotParty(pp-okondo-2003):
   name:
@@ -359,8 +347,8 @@ election.DistrictBallotParty(pse-okondo-2003):
   importName: "PSE-EE/PSOE"
 
 election.DistrictBallotParty(ezker-abertzalea-okondo-2003):
-  name: "EAE-ANV"
+  name: "Okondoko plataforma"
   mainParty: ezker-abertzalea
   districtBallot: okondo2003
-  importName: "EAE / ANV"
+  importName: "Okondoko plataforma"
   legal: false

@@ -14,6 +14,7 @@ GET     /admin/results/{electionId}             admin.Results.listDistricts
 GET     /admin/results/district/{districtId}          admin.Results.listPollingStations
 GET     /admin/results/pollingStation/{pollingStationId}          admin.Results.resultsSheet
 POST    /admin/results/pollingStation/{pollingStationId}          admin.Results.save
+*       /admin/import                           admin.ResultImporter.index
 *       /admin                                  module:crud
 
 #Results
