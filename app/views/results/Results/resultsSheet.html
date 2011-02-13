@@ -24,10 +24,10 @@
                             ${result.getResult(party)}
                         </td>
                         <td class="crudNew" >
-                            ${result.getPercentageOverVotes(party).format('0.00')}
+                            ${result.getPercentageOverVotes(party)?.format('0.00')}
                         </td>
                         <td class="crudNew" >
-                            ${result.getPercentageOverCensus(party).format('0.00')}
+                            ${result.getPercentageOverCensus(party)?.format('0.00')}
                         </td>
                     </tr>
                 #{/list}
@@ -41,7 +41,7 @@
                     <td class="crudNew">
                     </td>
                     <td class="crudNew">
-                        ${result.getNullVotePercentageOverCensus().format('0.00')}
+                        ${result.getNullVotePercentageOverCensus()?.format('0.00')}
                     </td>
                 </tr>
                 <tr>
@@ -52,10 +52,10 @@
                         ${result.whiteVoteAmount}
                     </td>
                     <td class="crudNew">
-                        ${result.getWhiteVotePercentageOverVotes().format('0.00')}
+                        ${result.getWhiteVotePercentageOverVotes()?.format('0.00')}
                     </td>
                     <td class="crudNew">
-                        ${result.getWhiteVotePercentageOverCensus().format('0.00')}
+                        ${result.getWhiteVotePercentageOverCensus()?.format('0.00')}
                     </td>
                 </tr>
                 <tr>
@@ -67,7 +67,7 @@
                     </td>
                     <td></td>
                     <td class="crudNew">
-                        ${result.getAbstentionsPercentage().format('0.00')}
+                        ${result.getAbstentionsPercentage()?.format('0.00')}
                     </td>
                 </tr>
                 <tr>
