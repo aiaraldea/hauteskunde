@@ -108,4 +108,13 @@ public class Election extends Model implements ResultProvider {
         }
         return seatingsTotal.get(party);
     }
+
+    public static Election loadOrCreateElection(String eleccion) {
+        Election election = Election.find("name", eleccion).first();
+        if (election == null) {
+            election = new Election(eleccion);
+            election.save();
+        }
+        return election;
+    }
 }

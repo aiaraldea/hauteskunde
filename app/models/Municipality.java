@@ -28,6 +28,15 @@ public class Municipality extends Model {
         this.name = name;
     }
 
+    public static Municipality loadOrCreateMunicipality(String stateCode, String code, String name) {
+        Municipality municipality = Municipality.find("byStateAndCode", stateCode, code).first();
+        if (municipality == null) {
+            municipality = new Municipality(stateCode, code, name);
+            municipality.save();
+        }
+        return municipality;
+    }
+
     @Override
     public String toString() {
         return code + " - " + name;

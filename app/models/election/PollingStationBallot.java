@@ -66,4 +66,17 @@ public class PollingStationBallot extends Model implements ResultProvider {
         districtBallot.clearCache();
         super._save();
     }
+
+    public static PollingStationBallot loadOrCreatePollingStationBallot(
+            DistrictBallot districtBallot,
+            PollingStation pollingStation,
+            int census) {
+        PollingStationBallot pollingStationBallot =
+                PollingStationBallot.find("districtBallot.id = ? and pollingStation.id = ?", districtBallot.id, pollingStation.id).first();
+        if (pollingStationBallot == null) {
+            pollingStationBallot = new PollingStationBallot(districtBallot, pollingStation, census);
+            pollingStationBallot.save();
+        }
+        return pollingStationBallot;
+    }
 }

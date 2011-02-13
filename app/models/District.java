@@ -24,4 +24,13 @@ public class District extends Model {
     public String toString() {
         return name;
     }
+
+    public static District loadOrCreateDistrict(String name) {
+        District district = District.find("name", name).first();
+        if (district == null) {
+            district = new District(name);
+            district.save();
+        }
+        return district;
+    }
 }

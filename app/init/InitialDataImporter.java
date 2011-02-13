@@ -128,13 +128,13 @@ public class InitialDataImporter {
                 censo = Integer.valueOf(result.get("Censo").trim());
                 nulos = Integer.valueOf(result.get("Nulos").trim());
                 blancos = Integer.valueOf(result.get("Blancos").trim());
-                
-                Election election = loadOrCreateElection(eleccion);
-                District district = loadOrCreateDistrict(institucion);
-                DistrictBallot districtBallot = loadOrCreateDistrictBallot(election, district);
-                Municipality municipality = loadOrCreateMunicipality(provincia, codMunicipio, nomMunicipio);
-                PollingStation pollingStation = loadOrCreatePollingStation(provincia, municipality, distrito, seccion, mesa);
-                pollingStationBallot = loadOrCreatePollingStationBallot(districtBallot, pollingStation, censo);
+
+                Election election = Election.loadOrCreateElection(eleccion);
+                District district = District.loadOrCreateDistrict(institucion);
+                DistrictBallot districtBallot = DistrictBallot.loadOrCreateDistrictBallot(election, district);
+                Municipality municipality = Municipality.loadOrCreateMunicipality(provincia, codMunicipio, nomMunicipio);
+                PollingStation pollingStation = PollingStation.loadOrCreatePollingStation(provincia, municipality, distrito, seccion, mesa);
+                pollingStationBallot = PollingStationBallot.loadOrCreatePollingStationBallot(districtBallot, pollingStation, censo);
 
                 pollingStationBallot.census = censo;
                 pollingStationBallot.save();
@@ -179,72 +179,5 @@ public class InitialDataImporter {
         } catch (IOException ex) {
             Logger.getLogger(InitialDataImporter.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-
-    private static Election loadOrCreateElection(String eleccion) {
-        Election election = Election.find("name", eleccion).first();
-        if (election == null) {
-            election = new Election(eleccion);
-            election.save();
-        }
-        return election;
-    }
-
-    private static District loadOrCreateDistrict(String name) {
-        District district = District.find("name", name).first();
-        if (district == null) {
-            district = new District(name);
-            district.save();
-        }
-        return district;
-    }
-
-    private static DistrictBallot loadOrCreateDistrictBallot(Election election, District district) {
-        DistrictBallot districtBallot = DistrictBallot.find(
-                "election.id = ? and district.id = ?",
-                election.id, district.id).first();
-        if (districtBallot == null) {
-            districtBallot = new DistrictBallot(election, district);
-            districtBallot.save();
-        }
-        return districtBallot;
-    }
-
-    private static Municipality loadOrCreateMunicipality(String stateCode, String code, String name) {
-        Municipality municipality = Municipality.find("byStateAndCode", stateCode, code).first();
-        if (municipality == null) {
-            municipality = new Municipality(stateCode, code, name);
-            municipality.save();
-        }
-        return municipality;
-    }
-
-    private static PollingStation loadOrCreatePollingStation(String provincia, Municipality municipality, String distrito, String seccion, String mesa) {
-        PollingStation pollingStation = PollingStation.find(
-                "municipality.state = ? "
-                + "and municipality = ? "
-                + "and psDistrict = ? "
-                + "and section = ? "
-                + "and table = ?",
-                provincia,
-                municipality,
-                distrito,
-                seccion,
-                mesa).first();
-        if (pollingStation == null) {
-            pollingStation = new PollingStation(municipality, distrito, seccion, mesa);
-            pollingStation.save();
-        }
-        return pollingStation;
-    }
-
-    private static PollingStationBallot loadOrCreatePollingStationBallot(DistrictBallot districtBallot, PollingStation pollingStation, int census) {
-        PollingStationBallot pollingStationBallot =
-                PollingStationBallot.find("districtBallot.id = ? and pollingStation.id = ?", districtBallot.id, pollingStation.id).first();
-        if (pollingStationBallot == null) {
-            pollingStationBallot = new PollingStationBallot(districtBallot, pollingStation, census);
-            pollingStationBallot.save();
-        }
-        return pollingStationBallot;
     }
 }

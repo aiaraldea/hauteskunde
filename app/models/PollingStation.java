@@ -49,4 +49,28 @@ public class PollingStation extends Model {
     public String getCode() {
         return psDistrict + "-" + section + "-" + table;
     }
+
+    public static PollingStation loadOrCreatePollingStation(
+            String provincia,
+            Municipality municipality,
+            String distrito,
+            String seccion,
+            String mesa) {
+        PollingStation pollingStation = PollingStation.find(
+                "municipality.state = ? "
+                + "and municipality = ? "
+                + "and psDistrict = ? "
+                + "and section = ? "
+                + "and table = ?",
+                provincia,
+                municipality,
+                distrito,
+                seccion,
+                mesa).first();
+        if (pollingStation == null) {
+            pollingStation = new PollingStation(municipality, distrito, seccion, mesa);
+            pollingStation.save();
+        }
+        return pollingStation;
+    }
 }

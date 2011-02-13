@@ -125,4 +125,15 @@ public class DistrictBallot extends Model implements ResultProvider {
         super._save();
         clearCache();
     }
+
+    public static DistrictBallot loadOrCreateDistrictBallot(Election election, District district) {
+        DistrictBallot districtBallot = DistrictBallot.find(
+                "election.id = ? and district.id = ?",
+                election.id, district.id).first();
+        if (districtBallot == null) {
+            districtBallot = new DistrictBallot(election, district);
+            districtBallot.save();
+        }
+        return districtBallot;
+    }
 }
