@@ -1,18 +1,18 @@
 package controllers.admin;
 
 import controllers.breadcrumb.Breadcrumb;
+import init.Fixtures;
 import init.InitialDataImporter;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import models.election.Election;
 import org.apache.commons.lang.StringUtils;
 import play.mvc.Controller;
 import play.mvc.Router;
@@ -31,6 +31,17 @@ public class ResultImporter extends Controller {
         url = Router.reverse("admin.ResultImporter.index", map).url;
         breadcrumb.addBreadcrumbEntry("Result Importer", url);
         render(breadcrumb);
+    }
+
+    public static void uploadYaml(File file) throws IOException {
+        if (file == null || !file.canRead()) {
+            flash.error("Please, provide a valid file");
+            index();
+        }
+        FileInputStream fis = new FileInputStream(file);
+        Fixtures.loadModels(fis);
+        flash.success("Yaml file imported");
+        index();
     }
 
     public static void uploadFile(File file) throws IOException {

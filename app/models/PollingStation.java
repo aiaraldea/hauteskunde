@@ -1,5 +1,6 @@
 package models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import org.apache.commons.lang.StringUtils;
@@ -21,6 +22,7 @@ public class PollingStation extends Model {
     @Required
     public String section;
     @Required
+    @Column(name = "psTable")
     public String table;
     @Required
     public String name;
@@ -56,7 +58,7 @@ public class PollingStation extends Model {
             String distrito,
             String seccion,
             String mesa) {
-        PollingStation pollingStation = PollingStation.find(
+        PollingStation pollingStation = find(
                 "municipality.state = ? "
                 + "and municipality = ? "
                 + "and psDistrict = ? "

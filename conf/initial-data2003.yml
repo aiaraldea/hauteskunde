@@ -60,7 +60,7 @@ election.DistrictBallotParty(ezker-abertzalea-arakaldo-2003):
   name: "Arakaldoko plataforma"
   mainParty: ezker-abertzalea
   districtBallot: arakaldo2003
-  importName: "Arakaldako plataforma"
+  importName: "Arakaldoko plataforma"
 
 election.DistrictBallotParty(pp-arakaldo-2003):
   name:
