@@ -1,0 +1,28 @@
+<div id="chart_div"></div>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+    google.load("visualization", "1", {packages:["corechart"]});
+    google.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Alderdia');
+        data.addColumn('number', 'Botoak');
+        data.addRows(${_result.parties.size + 3});
+
+        #{list items:_result.parties, as:'party'}
+        data.setValue(${party_index - 1}, 0, '&{party.name}');
+        data.setValue(${party_index - 1}, 1, ${_result.getResult(party)});
+        #{/list}
+
+        data.setValue(${_result.parties.size}, 0, '&{'Nulls'}');
+        data.setValue(${_result.parties.size}, 1, ${_result.nullVoteAmount});
+        data.setValue(${_result.parties.size +1}, 0, '&{'Whites'}');
+        data.setValue(${_result.parties.size +1}, 1, ${_result.whiteVoteAmount});
+        data.setValue(${_result.parties.size +2}, 0, '&{'Abstentions'}');
+        data.setValue(${_result.parties.size +2}, 1, ${_result.abstentions});
+
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, {width: 380, height: 280});
+    }
+</script>
